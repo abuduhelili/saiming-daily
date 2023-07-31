@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <img src="./images/1.png" usemap="#someshape" />
+      <map name="someshape">
+        <!-- 圆形 -->
+        <!-- coords=“x,y,R” //coords的值分别圆形的xy位置和半径 -->
+        <area
+          shape="circle"
+          coords="517,246,125"
+          href="./circle.html"
+          target="_blank"
+        />
+        <!-- 矩形 -->
+        <!-- coords="x0,y0,x1,y1"里的值分别为矩形对角的xy值 -->
+        <area
+          shape="rect"
+          coords="101,24,299,159"
+          href="./rect.html"
+          target="_blank"
+        />
+        <!-- 不规则 -->
+        <!-- coords的值要一个个点设置，如coords="x0,y0,x1,y1,x2,y2,x3,y3,x4,y4…" -->
+        <area
+          shape="poly"
+          coords="166,367,336,516,348,638,156,749"
+          href="./circle.html"
+          target="_blank"
+        />
+      </map>
+    </div>
+  </body>
+</html>

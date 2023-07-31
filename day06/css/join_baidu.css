@@ -1,0 +1,135 @@
+* {
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+.top {
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  justify-content: space-around;
+  /* overflow: hidden; */
+  z-index: 10;
+}
+.top .logo {
+  /* border: 1px solid rgb(120, 118, 118); */
+  width: 10%;
+  padding-left: 130px;
+  padding-top: 10px;
+}
+a {
+  text-decoration: none;
+}
+.top .logo img {
+  height: 30px;
+}
+.top .bann {
+  width: 50%;
+  /* border: 1px solid rgb(120, 118, 118); */
+}
+.top .bann .box {
+  padding: 0px 30px;
+  margin-top: 15px;
+  /* border: 1px solid rgb(120, 118, 118); */
+  display: flex;
+  justify-content: space-between;
+}
+.top .bann .box li {
+}
+.top .bann .box li a {
+  color: rgb(0, 0, 0);
+}
+
+.top .bann ul {
+  list-style: none;
+}
+.top .search {
+  margin-right: 120px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 19%;
+  height: 35px;
+  background-color: #1a89ed;
+  border-radius: 5px;
+  display: flex;
+}
+.top .search .text {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 3px;
+  margin-right: 5px;
+  padding-left: 5px;
+  border: 0;
+  width: 170px;
+  height: 28px;
+}
+.top .search .submit {
+  padding: 0px 10px;
+  background-color: #1a89ed;
+  color: white;
+  font-weight: 50;
+  border: 0;
+}
+.main {
+  height: 100vh;
+  background-color: rgb(120, 158, 190);
+  overflow: hidden;
+}
+.main video {
+  width: 100%;
+  object-fit: cover;
+}
+.main .box {
+  position: absolute;
+  width: 1200px;
+  margin: 0 auto;
+  left: 10%;
+  top: 25%;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-align: left;
+  font-size: 40px;
+}
+.main .box p {
+}
+.footer {
+  height: 150px;
+  width: 100%;
+  background-color: rgba(237, 237, 238, 0.9);
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+.footer .container {
+  width: 83%;
+  margin: 0 auto;
+  /* border: 1px solid rgb(120, 118, 118); */
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer .box {
+  padding-top: 30px;
+  width: 34%;
+  /* border: 1px solid rgb(120, 118, 118); */
+}
+.footer .box img {
+  margin: 0 auto;
+  display: block;
+  height: 50px;
+}
+.footer .box span {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  font-size: 20px;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #2298f4;
+}

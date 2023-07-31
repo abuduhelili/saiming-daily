@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+.header {
+  height: 50px;
+  width: 768px;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 999;
+}
+.header .container {
+  /* height: 60px; */
+  background-color: rgba(255, 255, 255, 0.9);
+
+  width: 768px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.header .logo {
+  display: inline-block;
+  line-height: 50px;
+}
+
+.header img {
+  width: 140px;
+  /* height: 100%; */
+}
+
+.header .menu {
+  display: none;
+}
+
+/* ********************** */
+/* bann */
+/*  */
+/*  */
+/*  */
+
+.banner {
+  background-image: url(/day03百度管理团队/背景.jpg);
+  background-size: 100% auto;
+  background-position: bottom;
+  height: 140px;
+  width: 768px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 55px;
+  position: relative;
+}
+.banner .title {
+  /* line-height: 50px; */
+  position: absolute;
+  top: -110px;
+  width: 768px;
+  text-align: center;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+}
+
+/* ******************************** */
+
+.main {
+  width: 768px;
+  margin: 0 auto;
+  position: relative;
+  /* background-color: aquamarine; */
+  top: -60px;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px #e8e8e9 solid;
+}
+
+.per {
+  border: red solid 1px;
+  background-color: white;
+  /* width: 270px; */
+  height: 280px;
+  margin: 10px 20px;
+  /* margin-left: 25px; */
+  /* margin-right: 25px; */
+  /* margin-bottom: 10px; */
+}
+.main img {
+  width: 100%;
+  /* height: ; */
+  /* float: left; */
+}
+
+.inform {
+  text-align: center;
+}
+.name {
+  padding-top: 0px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.work {
+  /* margin-bottom: 30px; */
+  padding-top: 0;
+  font-weight: 300;
+  font-size: 12px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.inform:hover {
+  background-color: #2298f4;
+  color: rgb(255, 255, 255);
+}
+
+/* footer */
+/*  */
+/*  */
+/*  */
+
+.footer {
+  width: 768px;
+}
+
+.bot {
+  /* background-color: rgb(198, 198, 198); */
+  /* padding: 0 13%; */
+}
+
+.share {
+  margin-top: 0;
+  font-size: 13px;
+  color: #666666;
+  letter-spacing: 0;
+  line-height: 2rem;
+  text-align: left;
+  border-bottom: 1px #e8e8e9 solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sup-more {
+  justify-content: center;
+}
+.footer .more {
+  flex: 1;
+}
+.footer .more-title {
+  text-align: center;
+  font-size: 14px;
+}
+.more:nth-child(1) {
+  display: inline;
+}
+.more:nth-child(4) {
+  display: none;
+}
+.footer .more a {
+  display: none;
+}
+.more {
+  margin-right: 0px;
+}
+
+.more-title {
+  font-size: 20px;
+  color: #666666;
+  letter-spacing: 0;
+  line-height: 60px;
+  text-align: left;
+}
+.more a {
+  font-size: 16px;
+  color: #999999;
+  letter-spacing: 0;
+  line-height: 25px;
+  text-align: left;
+  display: block;
+}
+.more a:hover {
+  color: #337ab7;
+}
+
+.icp {
+  background-color: #e5e5e5;
+  font-size: 10px;
+  color: #666666;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小齿轮</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        margin: 10px 100px;
+        border: 1px solid black;
+        height: 400px;
+        width: 400px;
+        /* display: flex; */
+        /* flex-wrap: wrap; */
+        /* padding: 10px 20px; */
+      }
+      .down {
+        display: flex;
+      }
+      #box-red {
+        border: 1px black solid;
+        width: 200px;
+        /* height: 200px; */
+        margin: 0 auto;
+        /* transform: translateY(10px); */
+        /* transition: all 5s; */
+      }
+
+      #box-blue {
+        border: 1px black solid;
+        width: 150px;
+        transform: translate(50px, -30px);
+        /* transition: all 5s; */
+      }
+      #box-yellow {
+        border: 1px black solid;
+        width: 100px;
+        transform: translate(40px, -10px);
+        /* transition: all 5s; */
+      }
+
+      #box-red img {
+        width: 100%;
+        animation: ani-red 15s linear infinite;
+        /* animation-play-state: paused; */
+      }
+      /* #box-red img:hover {
+        transform: rotate(20deg);
+      } */
+
+      #box-blue img {
+        width: 100%;
+        animation: ani-blue 10s linear infinite;
+        /* animation-play-state: paused; */
+      }
+      /* #box-blue img:hover {
+        transform: rotate(20deg);
+      } */
+
+      #box-yellow img {
+        width: 100%;
+        animation: ani-yellow 8s linear infinite;
+        /* animation-play-state: paused; */
+      }
+      /* #box-yellow img:hover {
+        transform: rotate(20deg);
+      } */
+
+      @keyframes ani-red {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes ani-blue {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(-360deg);
+        }
+      }
+      @keyframes ani-yellow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="box-red">
+        <img src="./images/齿轮-red.png" alt="" />
+      </div>
+      <div class="down">
+        <div id="box-blue">
+          <img src="./images/齿轮-blue.png" alt="" />
+        </div>
+        <div id="box-yellow">
+          <img src="./images/齿轮-yellow.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        border: 1px solid red;
+        height: 300px;
+        width: 300px;
+      }
+      .item i {
+        border: 1px solid red;
+        display: block;
+        height: 50px;
+        width: 50px;
+        background-image: url(./images/icon-ic.png);
+      }
+      .item :nth-of-type(1) i {
+        background-position: -0px -0px;
+      }
+      .item :nth-of-type(2) i {
+        background-position: -70px -0px;
+      }
+      .item :nth-of-type(3) i {
+        background-position: -70px -60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">
+      <i></i>
+    </div>
+    <div class="item">
+      <i></i>
+    </div>
+    <div class="item">
+      <i></i>
+    </div>
+  </body>
+</html>

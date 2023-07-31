@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .section {
+        height: 400px;
+      }
+      .section:nth-of-type(even) {
+        background-color: aquamarine;
+      }
+      .section:nth-of-type(odd) {
+        background-color: antiquewhite;
+      }
+      .nav {
+        width: 80px;
+        background-color: rgb(8, 8, 8);
+        position: fixed;
+        right: 0px;
+        bottom: 50px;
+      }
+      .nav div {
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        color: rgb(255, 255, 255);
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">三国演义</h1>
+    <p
+      style="
+        height: auto;
+        text-align: center;
+        background-color: rgb(155, 142, 142);
+      "
+    >
+      <span style="color: rgb(255, 255, 255)">作者：某某某</span>
+    </p>
+    <div class="section">
+      <!-- 锚点 -->
+      <a name="chap1"></a>
+      <h2>第1回.......................</h2>
+    </div>
+    <div class="section">
+      <a name="chap2"></a>
+      <h2>第2回........................</h2>
+    </div>
+    <div class="section">
+      <a name="chap3"></a>
+      <h2>第3回..........................</h2>
+    </div>
+    <div class="section">
+      <a name="chap4"></a>
+      <h2>第4回............................</h2>
+    </div>
+    <div class="section">
+      <a name="chap5"></a>
+      <h2>第5回............................</h2>
+    </div>
+    <div class="section">
+      <a name="chap6"></a>
+      <h2>第6回............................</h2>
+    </div>
+    <div class="section">
+      <a name="chap7"></a>
+      <h2>第7回............................</h2>
+    </div>
+    <div class="section">
+      <a name="chap8"></a>
+      <h2>第8回............................</h2>
+    </div>
+    <div class="section">
+      <a name="chap9"></a>
+      <h2>第9回............................</h2>
+    </div>
+    <div class="nav">
+      <div>
+        <a href="#chap1">第1回</a>
+      </div>
+      <div>
+        <a href="#chap2">第2回</a>
+      </div>
+      <div>
+        <a href="#chap3">第3回</a>
+      </div>
+      <div>
+        <a href="#chap4">第4回</a>
+      </div>
+      <div>
+        <a href="#chap5">第5回</a>
+      </div>
+      <div>
+        <a href="#chap6">第6回</a>
+      </div>
+      <div>
+        <a href="#chap7">第7回</a>
+      </div>
+      <div>
+        <a href="#chap8">第8回</a>
+      </div>
+      <div>
+        <a href="#chap9">第9回</a>
+      </div>
+    </div>
+  </body>
+</html>

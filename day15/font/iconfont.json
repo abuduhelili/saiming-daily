@@ -1,0 +1,37 @@
+{
+  "id": "4181929",
+  "name": "demo_mark",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "36505247",
+      "name": "关闭2",
+      "font_class": "guanbi2",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "36505248",
+      "name": "客服1",
+      "font_class": "kefu1",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "36505249",
+      "name": "运输",
+      "font_class": "yunshu",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "36549420",
+      "name": "积分",
+      "font_class": "jifen",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    }
+  ]
+}
