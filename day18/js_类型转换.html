@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--  -->
+    <script>
+      // 强制类型转换：
+      // 1.数字转换     : 三个方法：Number()，parseInt(),parseFloat()
+      var n = "100.105";
+      var n1 = Number(n);
+      var n2 = parseInt(n); // 会取整，不保留小数部分
+      var n3 = parseFloat(n); // 保留小数
+      console.log(n1, n2, n3);
+
+      // 2.字符串转换   : String()    toString()
+      var x1 = 100;
+      x1 = String(x1);
+      x1 = x1.toString(x1);
+      console.log(typeof x1);
+      console.log(x1);
+
+      //   3.boolean转换    :      Boolean()
+      //   tips:只有 0 和 空字符串 转换为false，其他都为true
+      var x2 = 100;
+      var x3 = 0;
+      var x2 = Boolean(x2);
+      var x3 = Boolean(x3);
+      console.log(typeof x2);
+      console.log(x2);
+      console.log(typeof x3);
+      console.log(x3);
+    </script>
+  </body>
+</html>
