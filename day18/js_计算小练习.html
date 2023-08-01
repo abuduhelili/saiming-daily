@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="number" placeholder="请输入数字1" id="input_1" /><br />
+      <input type="number" placeholder="请输入数字2" id="input_2" />
+    </div>
+    <div>
+      <input type="button" value="计算" id="btn" />
+    </div>
+    <div>
+      <label for="">相减</label>
+      <input type="number" placeholder="相减" id="out_1" /><br />
+      <label for="">相加</label>
+      <input type="number" placeholder="相加" id="out_2" />
+    </div>
+
+    <script>
+      // 获取元素
+      var input_1 = document.getElementById("input_1");
+      var input_2 = document.getElementById("input_2");
+      var out_1 = document.getElementById("out_1");
+      var out_2 = document.getElementById("out_2");
+      var btn = document.getElementById("btn");
+
+      // 给按钮添加点击事件
+      btn.onclick = function () {
+        // 获取输入框中的值
+        var num1 = input_1.value;
+        var num2 = input_2.value;
+        // 计算结果
+        var result1 = num1 - num2;
+        var result2 = +num1 + +num2;
+        // 输出结果
+        out_1.value = result1;
+        out_2.value = result2;
+      };
+    </script>
+  </body>
+</html>
