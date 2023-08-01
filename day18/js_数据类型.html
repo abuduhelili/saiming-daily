@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      js：
+        js是一种弱类型的脚本语言
+        js中的变量没有类型，只有值
+        js中的变量可以重复声明
+        js中的变量可以不声明直接使用
+        js中的变量可以不赋值直接使用
+
+      基本数据类型：
+        Number（数字）
+        String（字符串）
+        Boolean（布尔值）
+      对象类型：
+        Object（对象）
+      特殊类型：
+        Undefined（未定义）
+        Null（空值）
+      ES6新增：
+        Symbol
+
+      */
+      console.log("********************************************");
+      // 基本数据类型
+      var f1 = true;
+      var f2 = false;
+      var f3 = 1;
+      var f4 = 0;
+      var f5 = 3.14;
+      var f6 = 100;
+      var f7 = "hello";
+      var f8 = undefined;
+      var f9 = null;
+      console.log(f1, f2, f3, f4, f5, f6, f7, f8, f9);
+      console.log(
+        "类型：",
+        typeof f1,
+        typeof f2,
+        typeof f3,
+        typeof f4,
+        typeof f5,
+        typeof f6,
+        typeof f7,
+        typeof f8,
+        typeof f9
+      );
+
+      console.log("********************************************");
+
+      // 对象类型
+      //   定义一个人的对象
+      var person = {
+        name: "张三",
+        age: 18,
+        gender: "男",
+        height: 1.88,
+        weight: 75,
+      };
+      console.log(person);
+      console.log(typeof person);
+      console.log(person.name);
+      console.log(person.age);
+      console.log(person.gender);
+      console.log(person.height);
+      console.log(person.weight);
+
+      // 修改对象的属性
+      person.name = "李四";
+      console.log(person.name);
+
+      // 定义一个日期对象
+      var date = new Date();
+      console.log(date);
+
+      console.log("********************************************");
+      //   undefined
+      //   undefined只有一个值，undefined
+      var x;
+      console.log(x); //undefined
+
+      //   null
+      //   null只有一个值，null
+      var y = null;
+      console.log(y); //null
+
+      console.log("********************************************");
+      //   Symbol   （符号）
+      //   符号是特殊值，符号可以作为唯一标识符，
+      //   符号的值永远都是唯一的，不会与其他值相等
+      //   符号的值永远都是唯一的，不会与其他值相等
+      var x1 = Symbol("x");
+      var x2 = Symbol("x");
+      console.log(x1 === x2); // false
+    </script>
+  </body>
+</html>
