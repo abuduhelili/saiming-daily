@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="in_name" />
+    </div>
+    <button>
+      <input type="button" id="btn_commit" value="commit" />
+    </button>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="out_name" />
+    </div>
+
+    <script>
+      // 获取
+      var in_name = document.getElementById("in_name");
+      var btn_commit = document.getElementById("btn_commit");
+      // 点击事件
+      btn_commit.onclick = function () {
+        // 获取用户输入的值
+        var x = in_name.value;
+        console.log(x);
+        // 将用户输入的值赋值给out_name
+        out_name.value = x;
+      };
+    </script>
+  </body>
+</html>
