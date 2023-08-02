@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>交换和三位数取位数</title>
+  </head>
+  <body>
+    hello
+    <script>
+      // 1:定义两个变量，然后交换数值输出 (利用临时变量)
+      var a = 8;
+      var b = 9;
+
+      var temp = a;
+      a = b;
+      b = temp;
+      console.log(a, b);
+
+      //  2:一个三位数，分别输出个位数，十位数，百位数
+      var num = 914;
+      x = num / 100;
+      y = (num % 100) / 10;
+      z = num % 10;
+      console.log(parseInt(x), parseInt(y), parseInt(z));
+    </script>
+  </body>
+</html>
