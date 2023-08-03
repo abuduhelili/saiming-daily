@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .item {
+        /* height: 100px; */
+        width: 250px;
+        margin: 30px;
+        border: 1px solid grey;
+      }
+      .box {
+        height: 50px;
+        width: 50%;
+        margin: 10px 10px;
+        background-color: rgb(201, 201, 201);
+        /* display: none; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">
+      <h1>1:成绩判定</h1>
+      <input type="text" id="txt" placeholder="请输入：" />
+      <button id="btn">确认</button>
+      <div class="box" id="box"></div>
+    </div>
+    <script>
+      var txt = document.getElementById("txt");
+      var btn = document.getElementById("btn");
+      var box = document.getElementById("box");
+      btn.onclick = function () {
+        grade = txt.value;
+        console.log(grade);
+        /*       
+        // if语句
+        if (grade == "A" || grade == "a") {
+          box.innerHTML = "优秀";
+        } else if (grade == "B" || grade == "b") {
+          box.innerHTML = "良好";
+        } else if (grade == "C" || grade == "c") {
+          box.innerHTML = "一般";
+        } else if (grade == "D" || grade == "d") {
+          box.innerHTML = "及格";
+        } else if (grade == "E" || grade == "e") {
+          box.innerHTML = "不及格";
+        } else {
+          box.innerHTML = "输入有误";
+        }
+        */
+        //switch 语句
+        switch (grade) {
+          case "A":
+          case "a":
+            box.innerHTML = "优秀！！！";
+            break;
+          case "B":
+          case "b":
+            box.innerHTML = "良好！！";
+            break;
+          case "C":
+          case "c":
+            box.innerHTML = "一般！";
+            break;
+          case "D":
+          case "d":
+            box.innerHTML = "及格";
+            break;
+          case "E":
+          case "e":
+            box.innerHTML = "不及格。。";
+            break;
+          default:
+            box.innerHTML = "输入有误，请重新输入";
+        }
+      };
+    </script>
+  </body>
+</html>
