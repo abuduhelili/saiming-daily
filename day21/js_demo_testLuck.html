@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .part {
+        margin: 20px 10px;
+      }
+      .box {
+        width: 200px;
+        height: 100px;
+        border: 2px solid black;
+        margin: 10px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="part">
+      <button id="btnLuck" onclick="testLuck()">tody luck</button>
+      <div class="box" id="boxLuck"></div>
+    </div>
+    <script>
+      var boxLuck = document.getElementById("boxLuck");
+      var btnLuck = document.getElementById("btnLuck");
+      var br = "<br/>";
+
+      function testLuck() {
+        console.log("函数执行成功");
+        var luckNumber = parseInt(Math.random() * 100);
+        if (luckNumber > 80) {
+          boxLuck.innerHTML = luckNumber + br + "你今天非常幸运！！！！！";
+          boxLuck.style.backgroundColor = "red";
+        } else if (luckNumber > 60) {
+          boxLuck.innerHTML = luckNumber + br + "你今天有一点幸运！但不多！";
+          boxLuck.style.backgroundColor = "orange";
+        } else {
+          boxLuck.innerHTML = luckNumber + br + "你今天有点不幸！注意安全哦！";
+          boxLuck.style.backgroundColor = "black";
+          boxLuck.style.color = "white";
+        }
+      }
+    </script>
+  </body>
+</html>

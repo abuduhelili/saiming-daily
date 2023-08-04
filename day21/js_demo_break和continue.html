@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+
+      break语句：
+      break语句用于跳出当前循环（for、while、do-while、switch等）。
+      当break语句执行时，循环将立即结束，不再执行循环内剩余的代码。
+
+      continue语句：
+      continue语句用于跳过当前循环的剩余部分，然后继续下一次循环。
+      当continue语句执行时，循环将继续执行循环内剩余的代码，而不会执行循环条件（如条件语句中的else部分）。
+
+      */
+
+      //   1
+      //   从1-200之间，输出能同时被2和3整除的前10个数。用break实现。
+      document.write("<h5>" + "第1个练习:" + "</h5>");
+      var n = 0;
+      for (var i = 1; i <= 200; i++) {
+        if (i % 3 == 0 && i % 2 == 0) {
+          document.write(i + " ");
+          n++;
+          if (n == 10) {
+            break;
+          }
+        }
+      }
+      //   2
+      //   输出1-100之间所有的整数， 跳过3的倍数，或者个位数为5的数。用continue实现。
+      document.write("<h5>" + "第2个练习:" + "</h5>");
+      for (var i = 1; i <= 100; i++) {
+        if (i % 3 == 0 || i % 10 == 5 || i == 5) {
+          continue;
+        }
+        document.write(i + " ");
+      }
+    </script>
+  </body>
+</html>

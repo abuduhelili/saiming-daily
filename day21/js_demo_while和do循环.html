@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>while,do循环</title>
+</head>
+<body>
+<script>
+    <!--    求：1*2*3*4*5*6 -->
+    // // for
+    // var s = 1;
+    // for (var i = 1; i <= 6; i++) {
+    //     s *= i;
+    // }
+    // console.log(s);
+    //
+    // // while
+    // var i = 1;
+    // var s = 1;
+    // while (i <= 6) {
+    //     s *= i;
+    //     i++;
+    // }
+    // console.log(s);
+    //
+    // //   do
+    // var i = 1;
+    // var s = 1;
+    // do {
+    //     s *= i;
+    //     i++;
+    // } while (i <= 6);
+    // console.log(s);
+
+    //
+    // //  for循环
+    // var n = 0;
+    // for (var i = 0; ; i++) {
+    //     var ch = prompt('输入一个字符', '');
+    //     n++;
+    //     if (ch == "H" || ch == "h") {
+    //         break;
+    //     }
+    // }
+    // alert('输入了' + n + '个字符');
+
+    // // while循环
+    // var n = 0;
+    // while (true) {
+    //     var ch = prompt('输入一个字符', '');
+    //     n++;
+    //     if (ch == "H" || ch == "h") {
+    //         break;
+    //     }
+    // }
+    // alert('输入了' + n + '个字符');
+
+    // // do-while循环
+    // var n = 0;
+    // do {
+    //     var ch = prompt('输入一个字符', '');
+    //     n++;
+
+    //     if (ch == "H" || ch == "h") {
+    //         break;
+    //     }
+    // } while (true);
+    // alert('输入了' + n + '个字符');
+
+    /*
+    一筐鸡蛋
+      1个1个拿，正好拿完。
+      2个2个拿，还剩1个。
+      3个3个拿，正好拿完。
+      4个4个拿，还剩1个。
+      5个5个拿，还差1个。
+      6个6个拿，还剩3个。
+      7个7个拿，正好拿完。
+      8个8个拿，还剩1个。
+      9个9个拿，正好拿完。
+      问：鸡蛋有多少个？
+    */
+
+    // for (var i = 1; ; i++) {
+    //     if (i % 1 == 0 && i % 2 == 1 && i % 3 == 0 && i % 4 == 1 &&
+    //         i % 5 == 4 && i % 6 == 3 && i % 7 == 0 && i % 8 == 1 && i % 9 == 0) {
+    //         break;
+    //     }
+    // }
+    // alert('鸡蛋有' + i + '个');  // 1449
+
+    
+    // //     输出100-999之间所有的水仙花数。并统计有几个。
+    // //     水仙花数：一个三位数，每一位的立方和等于这个数。
+    // var n = 0;
+    // for (var i = 100; i < 1000; i++) {
+    //     var a = parseInt(i / 100);
+    //     var b = parseInt((i % 100) / 10);
+    //     var c = (i % 100) % 10;
+    //     if (Math.pow(a, 3) + Math.pow(b, 3) + Math.pow(c, 3) == i) {
+    //         n++;
+    //         document.write("<strong>" + i + "</strong>" + "\t");
+    //     }
+    // }
+    // //     输出100-999之间所有的水仙花数。并统计有几个。")
+    // document.write("<br/>" + "100-999之间所有的水仙花数共有：" + n);
+
+
+</script>
+</body>
+</html>
