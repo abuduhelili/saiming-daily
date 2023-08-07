@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="sushu()" id="btn_1">sushu</button>
+    <script>
+      //    1、输出1000-2000之间所有的闰年。
+      for (var n = 1000; n <= 2000; n++) {
+        // 判断是否为闰年
+        if ((n % 4 == 0 && n % 100 != 0) || (n % 100 == 0 && n % 400 == 0)) {
+          console.log(n);
+        }
+      }
+      //    2、用for循环完成 1 11 111 1111 11111  求和
+      console.log("test_2:");
+      var t = 0;
+      var add = 0;
+      for (var i = 0; i < 5; i++) {
+        t = t * 10 + 1;
+        add = add + t;
+      }
+      console.log(add);
+    </script>
+  </body>
+</html>

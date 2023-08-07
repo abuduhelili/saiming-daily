@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   定义一个函数，返回任意3个数的和。
+      function add_3(x1, x2, x3) {
+        var s = x1 + x2 + x3;
+        return s;
+      }
+      console.log(add_3(1, 2, 3));
+
+      //   定义一个函数，返回1+2 + 3 + 4 + ...+x 的所有整数和。
+      function addToX(x) {
+        var sum = 0;
+        for (var i = 1; i <= x; i++) {
+          sum += i;
+        }
+        return sum;
+      }
+      console.log(addToX(4));
+
+      //   定义一个函数，返回x1 + (x1+1) + (x1+2) + ... + x2的所有整数的和。  100-200  200-300
+      function addX1ToX2(x1, x2) {
+        var sum = 0;
+        for (var i = x1; i <= x2; i++) {
+          sum = sum + i;
+        }
+        return sum;
+      }
+      console.log(addX1ToX2(100, 200));
+      console.log(addX1ToX2(200, 300));
+
+      //   定义一个函数，返回一个布尔类型的值， 判断x是否是偶数。
+      function isEven(x) {
+        if (x % 2 == 0) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      console.log("是否是偶数:" + isEven(999));
+
+      //   定义一个函数，返回一个布尔类型的值， 判断一个数是否是素数。
+      function isPrimeNumber(x) {
+        flag = true;
+        for (var i = 2; i <= x - 1; i++) {
+          if (x % i == 0) {
+            flag = false;
+            break;
+          }
+        }
+        return flag;
+      }
+      console.log("是否是素数:" + isPrimeNumber(3));
+
+      //   定义一个函数，返回一个年是否是闰年。
+      function isLeapYear(n) {
+        flag = false;
+        if ((n % 4 == 0 && n % 100 != 0) || (n % 100 == 0 && n % 400 == 0)) {
+          flag = true;
+        }
+        return flag;
+      }
+      console.log("是否是闰年:" + isLeapYear(2002));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //    3、求素数（质数）写程序判断一个数是不是素数。  7   11 13  17 19 23
+      // console.log("test_3:");
+      // var n = 7;
+      // var flag = true;
+      // for (var i = 2; i <= n - 1; i++) {
+      //   if (n % i == 0) {
+      //     flag = false;
+      //     break;
+      //   }
+      // }
+      // if (flag) {
+      //   console.log(n + " " + "yes");
+      // }
+      //    4、输出1-100之间所有的素数。
+      console.log("test_4:");
+      for (var n = 3; n <= 100; n++) {
+        var flag = true;
+        for (var i = 2; i <= n - 1; i++) {
+          if (n % i == 0) {
+            flag = false;
+            break;
+          }
+        }
+        if (flag) {
+          console.log(n + " " + "yes");
+        }
+      }
+    </script>
+  </body>
+</html>
