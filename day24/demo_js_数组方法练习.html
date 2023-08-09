@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // [11,200,22,22,33,55,600,88,99,100],
+      //   删除这个数据中的第1个数据，最后一个数据， 并排序
+      var arr1 = [11, 200, 22, 22, 33, 55, 600, 88, 99, 100];
+      arr1.splice(0, 1);
+      arr1.splice(-1, 1);
+      console.log(
+        arr1.sort(function (a, b) {
+          return a - b;
+        })
+      );
+
+      // [11,22,22,22,33,55,66,88,99,100];  删除这个数组中所有的偶数
+      arr2 = [11, 22, 22, 22, 33, 55, 66, 88, 99, 100];
+      for (var i = 0; i < arr2.length; i++) {
+        if (arr2[i] % 2 == 0) {
+          arr2.splice(i, 1);
+          i--;
+        }
+      }
+      console.log(
+        arr2.sort(function (a, b) {
+          return a - b;
+        })
+      );
+
+      // [11,22,33,44,55], 判断这个数组中是否存在50这个数据。
+      arr3 = [11, 22, 33, 44, 55];
+      console.log(arr3.includes(50));
+    </script>
+  </body>
+</html>

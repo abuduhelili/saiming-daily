@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .box {
+        width: 150px;
+        height: 100px;
+        margin: 10px 10px;
+        border: 2px black solid;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        “标准体重是反应和衡量一个人健康状况的重要标志之一，过胖和过瘦都不利于健康，也不会给人健美感。
+    一般我们可以通过公式简单的估算，标准体重等于身高减去110，
+    例如身高是160cm，标准体重就应该160减去110等于50kg。  
+    标准，div绿色显示
+    超过了标准体重20%者即为肥胖，div蓝色显示
+    凡超过标准体重的10%者即为偏重， div蓝色显示
+    低于了10%即为偏瘦，div黄色显示
+    低于20%则为消瘦。div黄色显示 
+    -->
+    <div>
+      <input type="text" id="h" placeholder="请输入身高：" />
+    </div>
+    <div>
+      <input type="text" id="w" placeholder="请输入体重：" />
+    </div>
+    <div>
+      <button id="btn">确认</button>
+    </div>
+    <div class="box" id="resultBox">
+      <label for="">结果为：</label>
+      <h2 id="result"></h2>
+    </div>
+
+    <script>
+      var h = document.getElementById("h");
+      var w = document.getElementById("w");
+      var btn = document.getElementById("btn");
+      var resultBox = document.getElementById("resultBox");
+      var result = document.getElementById("result");
+      //   fn
+      btn.onclick = function () {
+        var x = h.value - 110;
+        if (x == 50) {
+          resultBox.style.backgroundColor = "green";
+          result.innerHTML = "标准";
+        } else if (w >= 1.2 * x) {
+          resultBox.style.backgroundColor = "red";
+          result.innerHTML = "肥胖";
+        } else if (w >= 1.1 * x) {
+          resultBox.style.backgroundColor = "yellow";
+          result.innerHTML = "稍重";
+        } else if (w >= 0.9 * x) {
+          resultBox.style.backgroundColor = "yellow";
+          result.innerHTML = "偏瘦";
+        } else if (w >= 0.8 * x) {
+          resultBox.style.backgroundColor = "red";
+          result.innerHTML = "消瘦";
+        } else {
+          resultBox.style.backgroundColor = "gold";
+          result.innerHTML = "正常";
+        }
+      };
+    </script>
+  </body>
+</html>

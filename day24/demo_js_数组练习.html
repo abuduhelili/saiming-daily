@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   1、定义一个数组，利用随机数组数组元素赋值，生成10个100-200以内的数据。
+      var arr1 = [];
+      for (var i = 0; i < 10; i++) {
+        arr1[i] = parseInt(Math.random() * 100 + 100);
+      }
+      console.log(arr1);
+
+      //   2、定义一个数组， 存11，22，33，44，55，66， 要求输出数组中所有的偶数
+      var arr2 = [11, 22, 33, 44, 55, 66];
+      for (var i = 0; i < arr2.length; i++) {
+        if (arr2[i] % 2 == 0) {
+          console.log(arr2[i]);
+        }
+      }
+
+      //   3、定义一个数组， 存10,20,30,40,50,60,80,90, 要求输出大于50的数据的个数
+      var arr3 = [10, 20, 30, 40, 50, 60, 80, 90];
+      var n = 0;
+      for (var i = 0; i < arr3.length; i++) {
+        if (arr3[i] > 50) {
+          n++;
+        }
+      }
+      console.log(n + " 个");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   数组的创建：
+      var arr = [];
+      var arr1 = [1, 2, 3, 4];
+      var arr2 = [1, "hello", true, null]; // 可以包含各种数据类型
+      var arr3 = [{}]; // 数组可以包含对象
+      var arr4 = new Array(100, "hello", "world", true, null); //构造函数
+
+      //   数组的类型：object
+
+      //   判断： instanceof运算符;   Array.isArry();
+      console.log(arr1 instanceof Array);
+      console.log(Array.isArray(arr2));
+
+      //   属性：length
+      console.log(arr4.length);
+
+      //   访问
+      var x = arr1[0]; //获取 index=0 的数组元素
+      console.log(x);
+      arr1[0] = 10; // 重新赋值
+
+      //   遍历
+      for (var i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+      }
+    </script>
+  </body>
+</html>

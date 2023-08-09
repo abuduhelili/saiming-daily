@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            常用：
+
+            concat()      连接两个或多个数组，并返回已连接数组的副本。
+            push()        将新元素添加到数组的末尾，并返回新的长度。
+            pop()         删除数组的最后一个元素，并返回该元素。
+            unshift()     将新元素添加到数组的开头，并返回新的长度。
+            shift()       删除数组的第一个元素，并返回该元素。
+            splice()      从数组中添加/删除元素。
+
+            更多：
+
+            includes()      检查数组是否包含指定的元素。
+            indexOf()       在数组中搜索元素并返回其位置。
+            Array.isArray() 检查对象是否为数组。
+            join()          将数组的所有元素连接成一个字符串。
+            toString()      将数组转换为字符串，并返回结果。
+            slice()         选择数组的一部分，并返回新数组。  
+            reverse()       反转数组中元素的顺序。
+            sort()          对数组的元素进行排序。
+
+            */
+
+      //  concat
+      var arr = ["1", "2", "3", "4", "5"];
+      var sedan = ["1", "2"];
+      var SUV = ["3", "4", "5"];
+      var wagon = ["3", "2", "1"];
+      var Volvo = sedan.concat(SUV, wagon);
+      console.log(Volvo);
+
+      //   push
+      console.log(arr.push("last"));
+
+      //   pop
+      console.log(arr.pop());
+
+      //   unshift
+      console.log(arr.unshift("the_first"));
+
+      //   shift
+      console.log(arr.shift());
+
+      //   splice
+      //   array.splice(index, howmany, item1, ....., itemX)
+      console.log(arr);
+      arr.splice(3, 1, "Lemon", "Kiwi");
+      arr.splice(-1, 0, "henry");
+      console.log(arr);
+
+      //   includes()
+      console.log(arr.includes("swift")); //false
+
+      //   indexOf()
+      console.log(arr.indexOf("henry"));
+
+      //   isArray()
+      console.log(Array.isArray(arr));
+
+      //   join();
+      console.log(arr.join("-"));
+
+      //   toString()
+      console.log(arr.toString());
+
+      //   slice()
+      console.log(arr.slice(2, 7));
+
+      //   reverse()
+      console.log(arr.reverse());
+
+      //   sort()
+      console.log(wagon);
+      console.log(wagon.sort());
+    </script>
+  </body>
+</html>
