@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      递归函数：定义函数过程中，再调用函数本身；
+
+      例子：
+      function getAge(n) {
+        if (n == 1) {
+          return 10;
+        }
+        return getAge(n - 1) + 2;
+      }
+      console.log(getAge(5));
+
+       */
+
+      //   斐波那契数列：1,1,2,3,5,8,13,21,34,55.....
+      //   求第n项
+      function getFibonacci(n) {
+        if (n == 1 || n == 2) {
+          return 1;
+        }
+        return getFibonacci(n - 1) + getFibonacci(n - 2);
+      }
+      //   前x项累加
+      function addFibonacci(x) {
+        var sum = 0;
+        for (var i = 1; i <= x; i++) {
+          sum += getFibonacci(i);
+        }
+        return sum;
+      }
+      //   输出
+      console.log(getFibonacci(11));
+      console.log(addFibonacci(6));
+    </script>
+  </body>
+</html>

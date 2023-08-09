@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 普通                    定义，使用没有严格前后顺序
+      function fn(str) {
+        console.log(str);
+        return false;
+      }
+      window.fn("hello");
+
+      // 字面量函数定义            必须先定义后使用
+      var fn = function (str) {
+        console.log(str);
+        return false;
+      };
+      window.fn("hello");
+
+      // new Function (不推荐)           必须先定义后使用
+      var fn = new Function("str", "console.log(str);return false;");
+      window.fn("hello");
+    </script>
+  </body>
+</html>
