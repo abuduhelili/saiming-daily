@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      1:
+      在下面一组数据中，[10,30,50,80,90,100,60],
+      写程序完成，求出去掉最小值，去掉最大值之后的平均值，
+      保留2位小数。
+      */
+      /*
+      var arr = [10, 30, 50, 80, 90, 100, 60];
+      //   排序：升序
+      arr.sort(function (a, b) {
+        return a - b;
+      });
+      //   删除第一个和最后一个
+      arr.splice(0, 1);
+      arr.splice(-1, 1);
+      //   求和，求平均值
+      sum = 0;
+      for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
+      var average = (sum / arr.length).toFixed(2);
+      console.log(average);
+      */
+
+      /*  2：
+      利用随机数，
+      给数组元素存放10个20-35之间的数据，
+      要求这10个数据不能重复。输出数组中的数据元素.
+      */
+      /*
+      var arr = [];
+      while (1) {
+        // 生成随机数
+        var i = parseInt(Math.random() * (35 - 20 + 1) + 20);
+        // 判断是否在数组里，若没有，则添加
+        if (!arr.includes(i)) {
+          arr.push(i);
+        }
+        // 判断长度是否达到10
+        if (arr.length >= 10) {
+          break;
+        }
+      }
+      console.log(arr);
+      */
+
+      /*  3:
+      100-999中可以开平方根，有两位相同的数字，加入数组中返回；
+      */
+      /*
+      var arr = [];
+      for (var i = 100; i <= 999; i++) {
+        // 分离
+        a = parseInt(i / 100);
+        b = parseInt((i % 100) / 10);
+        c = parseInt((i % 100) % 10);
+
+        // 判断是否可以平方根
+        if (isInt(Math.sqrt(i)) && (a == b || a == c || b == c)) {
+          arr.push(i);
+        }
+      }
+      //  判断是否整数
+      function isInt(num) {
+        return num % 1 === 0;
+      }
+      // 输出
+      console.log(arr);
+      */
+
+      /*  4:
+      封装一个函数，返回数组中偶数的个数；
+      */
+      var testArr = [1, 2, 3, 4, 5, 8, 99, 98];
+      function countEvenNumber(arr) {
+        var n = 0;
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] % 2 == 0) {
+            n++;
+          }
+        }
+        return n;
+      }
+      console.log(testArr);
+      console.log(countEvenNumber(testArr));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 数组去重：
+      // 1:用临时数组解决
+      // 2:从第一个开始遍历判断，后面是否还有相同元素，若有则删除
+      //
+      // 1:用临时数组解决
+      var arr = [100, 200, 200, 300, 400, 100, 500];
+      var temp = []; // 创建temp临时数组
+      for (var i = 0; i < arr.length; i++) {
+        // 遍历数组，若不存在，加入到temp中
+        if (!temp.includes(arr[i])) {
+          temp.push(arr[i]);
+        }
+      }
+      arr = temp; // temp复制到原来的数组
+      console.log(arr);
+
+      // 2:从第一个开始遍历判断，后面是否还有相同元素，若有则删除
+      var arr2 = [11, 22, 33, 11, 11, 33, 66, 22, 44, 55, 55, 66];
+      for (var i = 0; i < arr2.length; i++) {
+        for (var j = i + 1; j < arr2.length; j++) {
+          if (arr2[j] == arr2[i]) {
+            arr2.splice(j, 1);
+            j--;
+          }
+        }
+      }
+      console.log(arr2);
+    </script>
+  </body>
+</html>
