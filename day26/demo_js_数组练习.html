@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1-将字符串hello的首字符变为大写。
+      function capitalizeFirstLetter(s) {
+        var newS = s.charAt(0).toUpperCase() + s.slice(1);
+        return newS;
+      }
+      var str1 = "hello";
+      console.log(capitalizeFirstLetter(str1));
+
+      // 2-将字符串hello反转。
+      function reverseString(s) {
+        var arrayS = s.split("");
+        s = arrayS.reverse().join("");
+        return s;
+      }
+      console.log(reverseString(str1));
+
+      // 3-从helloeveryone！这个字符串中截取一个子串，
+      //   要求从ev这个字符串的位置开始截取，截取5个字符的一个子串。
+      var str2 = "helloeveryone!";
+      console.log(str2.substr(str2.indexOf("ev"), 5));
+
+      // 4-将 "hello boy hello girl hello everyone" 以空格为分隔，切割一个字符串数组。
+      var str3 = "hello boy hello girl hello everyone";
+      console.log(str3.split(" "));
+
+      /* 5: 将一个英文语句以单词为单位逆序排放。例如“I am a boy”，逆序排放后为“boy a am I”。
+                所有单词之间用一个空格隔开，语句中除了英文字母外，不再包含其他字符      */
+      var str5 = "My name is Henry !";
+      function f5(s) {
+        return s.split(" ").reverse().join(" ");
+      }
+      console.log(f5(str5));
+
+      // 6: var arr =["apple","banana","lemon","mango"];写程序完成，将数组中的每个单词的首字符变为大写。
+      var str6 = ["apple", "banana", "lemon", "mango"];
+      function f6(s) {
+        for (var i = 0; i < s.length; i++) {
+          s[i] = s[i].charAt(0).toUpperCase() + s[i].slice(1);
+        }
+        return s;
+      }
+      console.log(f6(str6));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // arguments 对象：可以收集输入所有的参数
+      //
+      // 任意数量的数相加求和
+      function getSum() {
+        var sum = 0;
+        for (var i = 0; i < arguments.length; i++) {
+          sum += arguments[i];
+        }
+        return sum;
+      }
+      console.log(getSum(1, 2, 3, 4, 5, 100));
+      // 任意数量的数相加求和
+    </script>
+  </body>
+</html>
