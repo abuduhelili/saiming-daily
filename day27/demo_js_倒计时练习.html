@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>亚运会倒计时</title>
+  </head>
+  <style>
+    #box {
+      display: flex;
+      height: 100px;
+      border: 2px black solid;
+    }
+  </style>
+  <body>
+    <div id="box"></div>
+    <script>
+      //
+      function showTime(endDate) {
+        // 截至时间
+        var endTime = new Date(endDate);
+        // 获取当前时间
+        var now = new Date();
+        // 剩余时间，为毫秒(ms)
+        var remainingTime = endTime - new Date();
+        // 判断剩余时间是否小于零
+        if (remainingTime <= 0) {
+          var D = 0;
+          var h = 0;
+          var m = 0;
+          var s = 0;
+        }
+        // 获取剩余时间,用padString格式化两位输出。
+        var D = Math.floor(remainingTime / (1000 * 3600 * 24))
+          .toString()
+          .padStart(2, "0");
+        var h = Math.floor((remainingTime % (1000 * 3600 * 24)) / (1000 * 3600))
+          .toString()
+          .padStart(2, "0");
+        var m = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60))
+          .toString()
+          .padStart(2, "0");
+        var s = Math.floor((remainingTime % (1000 * 60)) / 1000)
+          .toString()
+          .padStart(2, "0");
+        // 输出
+        document.getElementById("box").innerHTML =
+          "<h1>" +
+          "距亚运会:" +
+          D +
+          "天" +
+          h +
+          "小时" +
+          m +
+          "分钟" +
+          s +
+          "秒" +
+          "!" +
+          "</h1>";
+      }
+      //   定时器，显示
+      window.setInterval(showTime("2023,9,23"), 1000);
+    </script>
+  </body>
+</html>

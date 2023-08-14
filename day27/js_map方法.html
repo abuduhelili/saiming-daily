@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      map() 方法使用为每个数组元素调用函数的结果创建新数组。
+      map() 方法按顺序为数组中的每个元素调用一次提供的函数。
+
+      注释：map() 对没有值的数组元素不执行函数。
+      注释：map() 不会改变原始数组。
+      */
+
+      var numbers = [65, 44, 12, 4];
+      var newarray = numbers.map(myFunction);
+
+      function myFunction(num) {
+        return num * 10;
+      }
+      console.log(newarray);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #box {
+      display: flex;
+      width: 300px;
+      height: 100px;
+      border: 2px black solid;
+    }
+  </style>
+  <body>
+    <div id="box"></div>
+    <script>
+      // 定时器函数，
+      // 每隔1秒，调用一次displayData函数
+      window.setInterval(displayData, 1000);
+      function displayData() {
+        // 获取当前时间
+        var dateNow = new Date();
+        var Y = dateNow.getFullYear();
+        var M = dateNow.getMonth();
+        var D = dateNow.getDate();
+        var h = dateNow.getHours();
+        var m = dateNow.getMinutes();
+        var s = dateNow.getSeconds();
+        // 格式化
+        Y = format(Y);
+        M = format(M);
+        D = format(D);
+        h = format(h);
+        m = format(m);
+        s = format(s);
+        // 输出
+        document.getElementById("box").innerHTML =
+          Y + "年" + M + "月" + D + "日" + h + ":" + m + ":" + s;
+      }
+      // 格式化函数,用于数字双位显示
+      function format(n) {
+        if (n < 10) {
+          n = "0" + n;
+        }
+        return n;
+      }
+    </script>
+  </body>
+</html>

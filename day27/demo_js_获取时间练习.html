@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>问候</title>
+  </head>
+  <style>
+    #box {
+      /* display: flex; */
+      height: 150px;
+      width: 400px;
+      border: 2px black solid;
+    }
+  </style>
+  <body>
+    <div id="box"></div>
+    <script>
+      //
+      function greeting(name) {
+        // 获取当前时间
+        var now = new Date();
+        // 获取小时
+        var H = now.getHours();
+        // 判断时间
+        if (H <= 12) {
+          document.getElementById("box").innerHTML =
+            "<strong>" + "早上好! " + name + "</strong>";
+        } else if (H > 12 && H <= 14) {
+          document.getElementById("box").innerHTML =
+            "<strong>" + "中午好! " + name + "</strong>";
+        } else if (H > 14) {
+          document.getElementById("box").innerHTML =
+            "<strong>" + "下午好! " + name + "</strong>";
+        }
+      }
+      greeting("合力力");
+    </script>
+  </body>
+</html>

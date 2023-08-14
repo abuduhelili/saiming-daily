@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   1、有一个三位数，被4除余2，被7除余3,被9除余5，将满足条件的数据存放在一个数组中并输出。
+      function f1() {
+        var arr1 = [];
+        for (var i = 100; i < 1000; i++) {
+          if (i % 4 == 2 && i % 7 == 3 && i % 9 == 5) {
+            arr1.push(i);
+          }
+        }
+        return arr1;
+      }
+      console.log(f1());
+
+      //   2、定义一个数组var arr =[11,22,0,0,0,33,44,55,0],要去除数组中的0,并生成一个新的数组。
+      var arr2 = [11, 22, 0, 0, 0, 33, 44, 55, 0];
+      var temp2 = [];
+      var n = 0;
+      for (var i = 0; i < arr2.length; i++) {
+        if (!arr2[i] == 0) {
+          temp2[n] = arr2[i];
+          n++;
+        }
+      }
+      console.log(temp2);
+
+      //   3、封装一个函数，返回一个数组中偶数的个数
+      function f3(arr) {
+        var n = 0;
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] % 2 == 0) {
+            n++;
+          }
+        }
+        return n;
+      }
+      console.log(f3([1, 2, 3, 4, 5, 6, 9, 88]));
+
+      //   5、随机生成10个100以内的整数，然后将奇数和偶数分别存入到二个不同的数组中，并输出。
+      arrEven = [];
+      arrOdd = [];
+      for (var i = 0; i < 10; i++) {
+        var x = parseInt(Math.random() * 100);
+        if (x % 2 == 0) {
+          arrEven.push(x);
+        } else {
+          arrOdd.push(x);
+        }
+      }
+      console.log(arrEven);
+      console.log(arrOdd);
+
+      //   6、一组蔬菜英文(Potato、、Onion、、Celery、White Cabbage、 Cauliflower)输出含有“o”的单词
+      var arr = [
+        "Potato",
+        " ",
+        "Onion",
+        "Celery",
+        "White Cabbage",
+        "Cauliflower",
+      ];
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].includes("o") || arr.includes("O")) {
+          console.log(arr[i]);
+        }
+      }
+
+      //   7、数组中的每一位数字都增加50%，并返回一个新数组   var arr =[10,20,30];
+      var arr = [10, 20, 30];
+      var newArr = [];
+      for (var i = 0; i < arr.length; i++) {
+        newArr[i] = arr[i] * 1.5;
+      }
+      console.log(newArr);
+    </script>
+  </body>
+</html>
