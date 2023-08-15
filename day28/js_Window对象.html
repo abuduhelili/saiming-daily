@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+
+Window 对象:
+    window 对象表示浏览器中打开的窗口。
+    如果文档包含框架（<iframe> 标记），浏览器会为 HTML 文档创建窗口对象，并为每个框架创建额外的窗口对象。
+
+属性：
+
+    innerHeight;
+    innerWidth;
+
+
+方法：
+
+getComputedStyle()  方法获取 HTML 元素的计算 CSS 属性和值。
+getComputedStyle()  方法返回 CSSStyleDeclaration 对象。
+例子 1：
+      获取元素的计算背景色：
+      const element = document.getElementById("test");
+      const cssObj = window.getComputedStyle(element, null);  
+      let bgColor = cssObj.getPropertyValue("background-color");
+
+
+定时相关:(重要)
+
+setInterval()       以指定的时间间隔（以毫秒为单位）调用函数。直到调用 clearInterval() 或关闭窗口。
+clearInterval()     清除使用 setInterval() 方法 设置的计时器。
+setTimeout()        在若干毫秒后调用函数。（只执行一次。）
+clearTimeout()      来阻止函数启动。
+
+其它：
+
+console.time()      计时。与console.timeEnd()之间代码运行时长；
+console.timeEnd()
+
+Screen对象：availheight;availwidth;
+
+
+*/
+      // setInterval()
+      var x = 0;
+      var timer = setInterval(() => {
+        console.log(x);
+        x++;
+        if (x > 10) {
+          // clearInterval()
+          clearInterval(timer);
+        }
+      }, 1000);
+
+      //  setTimeout() ;
+      var timer2 = setTimeout(() => {
+        console.log("hello");
+      }, 5000);
+    </script>
+  </body>
+</html>

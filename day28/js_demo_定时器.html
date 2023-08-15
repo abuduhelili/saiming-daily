@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #box {
+      width: 200px;
+      height: 100px;
+      background-color: skyblue;
+    }
+    button {
+      width: 90px;
+    }
+  </style>
+  <body>
+    <div id="box"></div>
+    <button id="start">开始</button>
+    <button id="stop">停止</button>
+    <script>
+      //
+      var arr = ["北京", "天津", "广州", "深圳"];
+      var box = document.getElementById("box");
+      var start = document.getElementById("start");
+      var stop = document.getElementById("stop");
+      var timer = 0;
+
+      // 开始
+      start.onclick = () => {
+        // 按钮禁用
+        start.disabled = true;
+        // 设置定时器
+        timer = setInterval(() => {
+          // 随机生成下标，填入
+          box.innerHTML = arr[parseInt(Math.random() * arr.length)];
+        }, 500);
+      };
+
+      // 停止
+      stop.onclick = () => {
+        // 清除定时器
+        window.clearInterval(timer);
+        // 解除禁用
+        start.disabled = false;
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn1">获取</button>
+    <button id="btn2">跳转</button>
+    <button id="btn3">刷新</button>
+    <script>
+      var btn1 = document.getElementById("btn1");
+      var btn2 = document.getElementById("btn2");
+      var btn3 = document.getElementById("btn3");
+
+      //   获取当前url
+      btn1.onclick = () => {
+        console.log(location.href);
+      };
+
+      //   改变url
+      btn2.onclick = () => {
+        location.href = "https://www.baidu.com";
+      };
+
+      //   刷新
+      btn3.onclick = () => {
+        location.reload();
+      };
+    </script>
+  </body>
+</html>

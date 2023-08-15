@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1、var arr =[11,22,33,44,55],返回该数组的每个数据元素的2倍，生成一个新的数组。
+      function f1() {
+        let arr = [11, 22, 33, 44, 55];
+        console.log(
+          arr.map((num) => {
+            return 2 * num;
+          })
+        );
+      }
+      f1();
+
+      // 2、var arr =[11,22,33,44,55,66,77,88],返回该数组的大于50的数据元素，生成一个新的数组。
+      function f2() {
+        let arr = [11, 22, 33, 44, 55, 66, 77, 88];
+        let temp = arr.filter((item) => {
+          return item > 50;
+        });
+
+        console.log(temp);
+      }
+      f2();
+
+      // 3、定义一个数组1和数组2，合并成数组3，并升序排序  var arr1=[110,33,66] var arr2=[77,22,9,5];
+      function f3() {
+        var arr1 = [110, 33, 66];
+        var arr2 = [77, 22, 9, 5];
+        var arr3 = arr1.concat(arr2);
+        console.log(
+          arr3.sort(function (a, b) {
+            return a - b;
+          })
+        );
+      }
+      f3();
+
+      /*   4、找出数组1有的数据，数组2中没有的数据，存放到数组3中,
+                var arr1=[11,22,33,55,66]  var arr2 =[22,33,88]     */
+      function f4() {
+        var arr1 = [11, 22, 33, 55, 66];
+        var arr2 = [22, 33, 88];
+        var arr3 = [];
+        // 遍历数组1
+        for (let i = 0; i < arr1.length; i++) {
+          // 检查数组2中是否包含相同的值
+          if (arr2.indexOf(arr1[i]) === -1) {
+            // 如果不在，将值添加到数组3中
+            arr3.push(arr1[i]);
+          }
+        }
+        console.log(arr3);
+      }
+      f4();
+
+      //   5、实现数组去重。
+      function f5(arr) {
+        // 创建临时数组
+        let temp = [];
+        for (var i = 0; i < arr.length; i++) {
+          if (!temp.includes(arr[i])) {
+            temp.push(arr[i]);
+          }
+        }
+        console.log(temp);
+      }
+      f5([1, 1, 1, 1, 2, 3, 4, 5, 6, 6, 6]);
+
+      /*   6、编写一个将两个字符串交叉合并的函数merge(s1,s2),
+           例如merge("123","abc")的返回结果是"1a2b3c",如果二个字符串的长度不同，
+           那么就将多余的部分直接合并到结果字符串的末尾，
+           如merge("123456","abc")的返回结果是"1a2b3c456"
+      */
+      function merge(s1, s2) {
+        var s3 = "";
+        if (s1.length == s2.length) {
+          for (var i = 0; i < s1.length; i++) {
+            s3 += s1[i];
+            s3 += s2[i];
+          }
+          console.log(s3);
+        } else if (s1.length > s2.length) {
+          for (var i = 0; i < s2.length; i++) {
+            s3 += s1[i];
+            s3 += s2[i];
+          }
+          s3 += s1.substr(s2.length);
+          console.log(s3);
+        } else if (s1.length < s2.length) {
+          for (var i = 0; i < s1.length || i < s2.length; i++) {
+            s3 += s1[i];
+            s3 += s2[i];
+          }
+          s3 += s1.substr(s2.length);
+          console.log(s3);
+        }
+      }
+      merge("123456", "abc");
+    </script>
+  </body>
+</html>
