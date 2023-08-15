@@ -28,8 +28,42 @@
             reverse()       反转数组中元素的顺序。
             sort()          对数组的元素进行排序。
 
-            */
 
+
+高阶方法补充：
+
+filter()  :  
+
+  filter() 方法创建数组，其中填充了所有通过测试的数组元素（作为函数提供）。
+  注释：filter() 不会对没有值的数组元素执行该函数。
+  注释：filter() 不会改变原始数组。
+  例子：
+      返回由 ages 数组中所有 18 岁或以上的值组成的数组：
+      var ages = [32, 33, 16, 40];
+      function checkAdult(age) {
+        return age >= 18;
+      }
+      function myFunction() {
+        document.getElementById("demo").innerHTML = ages.filter(checkAdult);
+      }
+        
+map() :
+
+  map() 方法使用为每个数组元素调用函数的结果创建新数组。
+  map() 方法按顺序为数组中的每个元素调用一次提供的函数。
+  注释：map() 对没有值的数组元素不执行函数。
+  注释：map() 不会改变原始数组。
+
+  例子：
+      var numbers = [65, 44, 12, 4];
+      var newarray = numbers.map(myFunction);
+      function myFunction(num) {
+        return num * 10;
+      }
+      console.log(newarray);
+*/
+
+      // 例子：
       //  concat
       var arr = ["1", "2", "3", "4", "5"];
       var sedan = ["1", "2"];
