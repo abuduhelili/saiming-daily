@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1、求出一组字符串中，含有at的字符串，放到一个新的数组中. ' cat' , 'bat' ,'hit' , mat ,bird 。
+      function f1(array) {
+        var newArray = [];
+        for (let i = 0; i < array.length; i++) {
+          const element = array[i];
+          if (element.includes("at")) {
+            newArray.push(element);
+          }
+        }
+        console.log(newArray);
+      }
+      f1(["cat", "bat", "hit", "mat", "bird"]);
+
+      // 2、如果一个数等于其所有因子之和,我们就称这个数为"完数", 例如 6的因子为1,2,3;6=1+2+3;6就是一个完数.
+      // 封装一个函数，判断这个数是不是完数,返回值是boolean。
+      function f2(n) {
+        var tag = false;
+        var sum = 0;
+        for (let i = 1; i < n; i++) {
+          if (n % i === 0) {
+            sum += i;
+          }
+        }
+        if (sum == n) {
+          tag = true;
+        }
+        console.log(tag);
+      }
+      f2(6);
+
+      // 3、编写一个函数，判断某字符串是否是回文字符串。   abcba  aba abba
+      function f3(str) {
+        var flag = false;
+        str2 = str.split("").reverse().join("");
+        // console.log(str2);
+        if (str == str2) {
+          flag = true;
+        } else {
+          flag = false;
+        }
+        console.log(flag);
+      }
+      f3("abcba");
+    </script>
+  </body>
+</html>

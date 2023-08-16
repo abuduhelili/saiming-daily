@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box">
+      <p>1</p>
+      <p>2</p>
+      <p>3</p>
+    </div>
+    <button id="btn">set</button>
+    <script>
+      /*
+      创建节点      var div = document.createElement("div");
+      添加节点      parentNode.appendChild(childNode);
+        */
+
+      var btn = document.getElementById("btn");
+      btn.onclick = function () {
+        // 创建div节点
+        var div = document.createElement("div");
+        div.style.border = "1px solid red";
+        div.style.width = "100px";
+        div.style.height = "100px";
+        div.style.backgroundColor = "yellow";
+        // 添加节点
+        // document.body.appendChild(div);
+        box.appendChild(div);
+      };
+    </script>
+  </body>
+</html>

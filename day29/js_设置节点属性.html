@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        border: 3px skyblue solid;
+        width: 100px;
+        height: 100px;
+      }
+      .box2 {
+        border: 3px skyblue solid;
+        width: 100px;
+        height: 100px;
+        background: yellow;
+      }
+      .border {
+        border: 4px red solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box">box</div>
+    <a id="a" href="https://www.baidu.com">baidu</a><br />
+    <button id="btn1">设置</button>
+    <script>
+      var box = document.getElementById("box");
+      var btn1 = document.getElementById("btn1");
+      var a = document.getElementById("a");
+      btn1.onclick = function () {
+        // box.style.backgroundColor = "skyblue";
+        // box.style.width = "200px";
+        // box.style.height = "200px";
+        // box.style.fontSize = "26px";
+        // box.style.color = "blue";
+        // box.className = "box2";          // 改变类名
+        // box.classList.add("border");     // 添加类名
+        // box.classList.remove("border");  // 删除类名
+        // a.href = "https://www.cn.bing.com";
+        // box.innerHTML = "oooooooo";
+      };
+    </script>
+  </body>
+</html>

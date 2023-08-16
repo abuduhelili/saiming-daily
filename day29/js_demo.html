@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">渲染</button>
+    <script>
+      var arr = ["html入门到精通", "js进阶", "平凡的世界"];
+      var btn = document.getElementById("btn");
+      btn.onclick = function () {
+        // 创建div
+        var div = document.createElement("div");
+        // 添加内容
+        div.innerHTML = arr.join("<br/>");
+        // 设置样式
+        div.style.color = "red";
+        div.style.backgroundColor = "#666";
+        div.style.fontSize = "30px";
+        div.style.textAlign = "center";
+        div.style.width = "400px";
+        // 添加到body中
+        document.body.appendChild(div);
+      };
+    </script>
+  </body>
+</html>
