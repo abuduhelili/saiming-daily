@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style-type: none;
+        display: flex;
+      }
+      ul li {
+        width: 150px;
+        height: 50px;
+        border-bottom: 2px solid #ccc;
+        text-align: center;
+      }
+      .btn {
+        width: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="add" class="btn">渲染</button>
+    <div id="goods">
+      <ul>
+        <li>商品编号</li>
+        <li>商品名称</li>
+        <li>商品数量</li>
+        <li>商品操作</li>
+      </ul>
+    </div>
+    <script>
+      // 商品数据
+      var goods = [
+        { id: 1, name: "衣服1", num: 2 },
+        { id: 2, name: "衣服2", num: 1 },
+        { id: 3, name: "衣服3", num: 4 },
+        { id: 4, name: "衣服4", num: 6 },
+        { id: 5, name: "衣服5", num: 8 },
+      ];
+      // 获取元素
+      var add = document.getElementById("add");
+      // 绑定事件
+      add.onclick = function () {
+        this.disabled = true;
+        // 循环添加商品
+        for (var i = 0; i < goods.length; i++) {
+          // console.log("ok");  // test
+          // 创建元素
+          var ul = document.createElement("ul");
+          var liID = document.createElement("li");
+          var liName = document.createElement("li");
+          var liNum = document.createElement("li");
+          var liOper = document.createElement("li");
+          var delBtn = document.createElement("button");
+          var addNum = document.createElement("button");
+          var lessNum = document.createElement("button");
+          var num = document.createElement("span");
+
+          // 获取内容
+          liID.innerHTML = goods[i].id;
+          liName.innerHTML = goods[i].name;
+          addNum.innerHTML = "+";
+          addNum.className = "btn";
+          lessNum.innerHTML = "-";
+          lessNum.className = "btn";
+          num.innerHTML = goods[i].num;
+          delBtn.innerHTML = "删除";
+
+          // 添加节点
+          liOper.appendChild(delBtn);
+          ul.appendChild(liID);
+          ul.appendChild(liName);
+
+          liNum.appendChild(lessNum);
+          liNum.appendChild(num);
+          liNum.appendChild(addNum);
+
+          ul.appendChild(liNum);
+          ul.appendChild(liOper);
+          document.getElementById("goods").appendChild(ul);
+
+          // 删除事件
+          delBtn.onclick = function () {
+            this.parentNode.parentNode.remove();
+          };
+
+          // 减
+          lessNum.onclick = function () {
+            this.nextSibling.innerHTML = Number(this.nextSibling.innerHTML) - 1;
+            if (Number(this.nextSibling.innerHTML) <= 0) {
+              this.disabled = true;
+            }
+          };
+
+          // 加
+          addNum.onclick = function () {
+            this.previousSibling.previousSibling.disabled = false;
+            this.previousSibling.innerHTML =
+              Number(this.previousSibling.innerHTML) + 1;
+          };
+        }
+      };
+    </script>
+  </body>
+</html>

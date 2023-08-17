@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="请输入：" id="txt" />
+    <button id="btn">添加</button>
+    <ul>
+      <li>Lorem ipsum dolor sit amet.</li>
+    </ul>
+    <script>
+      // 获取元素
+      var btn = document.getElementById("btn");
+      var txt = document.getElementById("txt");
+      var ul = document.getElementsByTagName("ul");
+      console.log(ul);
+      // 点击事件
+      btn.onclick = function () {
+        // 获取输入内容
+        var txtValue = txt.value;
+        // 创建一个li对象
+        var li = document.createElement("li");
+        // 设置li内容
+        li.innerHTML = txtValue;
+        // 添加到ul中
+        ul[0].appendChild(li); // ul[0]：获取第一个ul元素
+        // ul[0].insertBefore(li,ul[0].firstChild); // 添加到最前面
+        // 清空输入框
+        txt.value = "";
+      };
+    </script>
+  </body>
+</html>

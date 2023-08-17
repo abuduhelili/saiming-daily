@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>渲染</button>
+    <ul></ul>
+    <script>
+      // 数据(对象)
+      arr = [
+        {
+          href: "https://www.baidu.com",
+          title: "百度一下",
+        },
+        {
+          href: "https://www.taobao.com",
+          title: "淘宝",
+        },
+        {
+          href: "https://www.jd.com",
+          title: "京东",
+        },
+      ];
+      // 1. 获取元素
+      var btn = document.getElementsByTagName("button")[0];
+      var ul = document.getElementsByTagName("ul")[0];
+      // 2. 绑定事件
+      btn.onclick = function () {
+        // 遍历数组
+        for (var i = 0; i < arr.length; i++) {
+          // 创建li
+          var li = document.createElement("li");
+          // 创建a
+          var a = document.createElement("a");
+          // 添加href
+          a.href = arr[i].href;
+          // 添加title
+          a.innerHTML = arr[i].title;
+          // 把a添加到li
+          li.appendChild(a);
+          // 把li添加到ul
+          ul.appendChild(li);
+        }
+      };
+    </script>
+  </body>
+</html>

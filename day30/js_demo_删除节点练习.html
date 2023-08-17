@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 100px;
+        /* background-color: skyblue; */
+        border: 2px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">
+      <button id="btnAdd">添加</button>
+    </div>
+    <script>
+      // 1.获取标签
+      var btnAdd = document.getElementById("btnAdd");
+      var item = document.getElementsByClassName("item")[0];
+      // 2.添加事件
+      btnAdd.onclick = function () {
+        // 3.创建标签
+        var div = document.createElement("div");
+        // 4.添加标签
+        item.appendChild(div);
+        // 5.添加样式
+        div.className = "box";
+        div.style.backgroundColor = "skyblue";
+        // 6.添加删除按钮
+        var btnDel = document.createElement("button");
+        btnDel.innerHTML = "删除";
+        div.appendChild(btnDel);
+        // 7.delete事件
+        btnDel.onclick = function () {
+          this.parentNode.remove();
+        };
+      };
+    </script>
+  </body>
+</html>

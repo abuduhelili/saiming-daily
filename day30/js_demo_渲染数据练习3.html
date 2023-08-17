@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      select {
+        width: 200px;
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 下拉选项框 -->
+    <select></select>
+    <script>
+      // 数据
+      var schools = [
+        {
+          name: "天津理工大学",
+          value: "tl",
+        },
+        {
+          name: "天津大学",
+          value: "tdu",
+        },
+        {
+          name: "天津师范大学",
+          value: "tnn",
+        },
+        {
+          name: "天津商业大学",
+          value: "tsb",
+        },
+      ];
+      // 获取下拉框
+      var select = document.getElementsByTagName("select")[0];
+      // 立即执行函数：添加option
+      (function () {
+        // 遍历数据
+        for (var i = 0; i < schools.length; i++) {
+          // 创建option
+          var option = document.createElement("option");
+          // 设置option的value
+          option.value = schools[i].value;
+          // 设置option的文本
+          option.innerText = schools[i].name;
+          // 添加到select中
+          select.appendChild(option);
+        }
+      })();
+    </script>
+  </body>
+</html>

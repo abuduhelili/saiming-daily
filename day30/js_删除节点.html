@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        width: 200px;
+        height: 100px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">
+      <button>删除</button>
+    </div>
+    <script>
+      /*
+      删除节点方法：
+      obj.remove()   常用
+      obj.removeChild(children[0])
+      obj.parentNode.removeChild(obj)
+       */
+
+      var btn = document.getElementsByTagName("button")[0];
+      var item = document.getElementsByClassName("item")[0];
+      btn.onclick = function () {
+        // item.remove();
+        this.parentNode.remove();
+        // item.parentNode.removeChild(item);
+        // document.body.removeChild(this.parentNode);
+        // document.body.removeChild(item);
+      };
+    </script>
+  </body>
+</html>
