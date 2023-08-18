@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .space {
+        width: 200px;
+        height: 200px;
+        border: 2px solid black;
+        position: relative;
+        margin: 30px;
+      }
+      .box {
+        width: 30px;
+        height: 30px;
+        /* background-color: skyblue; */
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .box img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="space">
+      <div class="box">
+        <img id="player" src="./images/0.gif" alt="" />
+      </div>
+    </div>
+    <script>
+      //
+      var data = [
+        {
+          src: "./images/0.gif",
+        },
+        {
+          src: "./images/ren_q_1.gif",
+        },
+        {
+          src: "./images/ren_h_1.gif",
+        },
+        {
+          src: "./images/ren_l_1.gif",
+        },
+        {
+          src: "./images/ren_r_1.gif",
+        },
+      ];
+      //
+      var space = document.querySelector(".space");
+      var box = document.querySelector(".box");
+      var player = document.getElementById("player");
+      // box
+      var boxWidth = box.offsetWidth;
+      var boxHeight = box.offsetHeight;
+      // space
+      var spaceX = space.offsetWidth;
+      var spaceY = space.offsetHeight;
+      document.onkeydown = (event) => {
+        // 获取按下的键名
+        var key = event.keyCode;
+        // 位置
+        var x = box.offsetLeft;
+        var y = box.offsetTop;
+        // 左键
+        if (key === 37 && x > 0) {
+          player.src = data[3].src;
+          box.style.left = box.offsetLeft - 10 + "px";
+        }
+        // 右键
+        else if (key === 39 && x + boxWidth < spaceX) {
+          player.src = data[4].src;
+          box.style.left = box.offsetLeft + 10 + "px";
+        }
+        // 上键
+        else if (key === 38 && y > 0) {
+          player.src = data[1].src;
+          box.style.top = box.offsetTop - 10 + "px";
+        }
+        // 下键
+        else if (key === 40 && y + boxHeight < spaceY) {
+          player.src = data[2].src;
+          box.style.top = box.offsetTop + 10 + "px";
+        }
+      };
+    </script>
+  </body>
+</html>

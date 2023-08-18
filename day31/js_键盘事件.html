@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      keydown,keypress,keyup
+      */
+      document.onkeydown = (event) => {
+        var code = event.keyCode;
+        if (code === 37) {
+          console.log("left");
+        } else if (code === 38) {
+          console.log("up");
+        } else if (code === 39) {
+          console.log("right");
+        } else if (code === 40) {
+          console.log("down");
+        }
+      };
+    </script>
+  </body>
+</html>

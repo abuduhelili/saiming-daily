@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: relative;
+      }
+      .inner {
+        width: 10px;
+        height: 10px;
+        background: blue;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="inner"></div>
+    </div>
+    <script>
+      /* 
+      clientWidth,clientHeight   视口宽度高度 (包括边框、内边距和内容)
+      offsetWidth,offsetHeight   元素宽度高度 (包括边框，但不包括内边距和内容)
+      offsetLeft,offsetTop       元素相对于其定位父元素的水平偏移量和垂直偏移量
+            
+
+
+
+
+
+      */
+      var box = document.querySelector(".box");
+      var inner = document.querySelector(".inner");
+      console.log(box.clientWidth);
+      console.log(inner.offsetWidth, inner.offsetHeight);
+      console.log(inner.offsetLeft, inner.offsetTop);
+    </script>
+  </body>
+</html>
