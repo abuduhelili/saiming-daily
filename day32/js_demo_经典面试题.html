@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul {
+        width: 200px;
+        border: 2px solid red;
+      }
+      li {
+        width: 100px;
+        height: 30px;
+        background-color: skyblue;
+        list-style: none;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>hello......1</li>
+      <li>hello......2</li>
+      <li>hello......3</li>
+      <li>hello......4</li>
+      <li>hello......5</li>
+    </ul>
+    <script>
+      // 求一组li点击时，输出对应索引
+      var ul = document.querySelector("ul");
+      var list = document.querySelectorAll("li");
+
+      // 方法一：事件委托
+      for (var i = 0; i < list.length; i++) {
+        list[i].index = i; // 添加一个index属性
+      }
+      ul.onclick = (e) => {
+        console.log(e.target.index);
+      };
+
+      // 方法二：let  (let还需要更加熟练，现在还不是很理解这个)
+      //   for (let i = 0; i < list.length; i++) {
+      //     list[i].onclick = function () {
+      //       console.log(i);
+      //     };
+      //   }
+
+      // 方法三：添加索引
+      //   for (var i = 0; i < list.length; i++) {
+      //     list[i].index = i;
+      //     list[i].onclick = function () {
+      //       console.log(this.index);
+      //     };
+      //   }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button id="startBtn">开始</button>
+      <button id="stopBtn">停止</button>
+    </div>
+    <script>
+      //   console.log(Math.random());
+      // 获取元素
+      var start = document.getElementById("startBtn");
+      var stop = document.getElementById("stopBtn");
+      // 定义一个定时器
+      var timer = 0;
+      // 给按钮绑定点击事件
+      start.onclick = () => {
+        // 设置定时器时间间隔为1秒
+        timer = setInterval(() => {
+          // 清除上一次生成的div
+          document.body.removeChild(document.body.lastChild);
+          // 在页面随机生成大小随机，位置随机，颜色随机的div,并清除上一次生成的div
+          // 创建一个div
+          var div = document.createElement("div");
+          // 设置div的大小
+          w = Math.random() * 300 + "px";
+          h = Math.random() * 300 + "px";
+          div.style.width = w;
+          div.style.height = h;
+          // 设置div的颜色
+          div.style.backgroundColor =
+            "rgb(" +
+            Math.random() * 255 +
+            "," +
+            Math.random() * 255 +
+            "," +
+            Math.random() * 255 +
+            ")";
+          // 设置div的位置(未优化：可能会超出屏幕，可以减去div自身长度来防止超出屏幕)
+          div.style.position = "absolute";
+          div.style.left = Math.random() * window.innerWidth + "px";
+          div.style.top = Math.random() * window.innerHeight + "px";
+          // 把div添加到body中
+          document.body.appendChild(div);
+        }, 1000);
+      };
+      // 给按钮绑定点击事件
+      stop.onclick = () => {
+        // 清除定时器
+        clearInterval(timer);
+      };
+    </script>
+  </body>
+</html>

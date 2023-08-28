@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul {
+        width: 200px;
+        border: 2px solid red;
+      }
+      li {
+        width: 100px;
+        height: 30px;
+        background-color: skyblue;
+        list-style: none;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>hello......1</li>
+      <li>hello......2</li>
+      <li>hello......3</li>
+      <li>hello......4</li>
+      <li>hello......5</li>
+    </ul>
+    <script>
+      /*
+
+          事件委托：
+              事件委托就是利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。
+
+          事件委托的原理：
+              事件冒泡，子元素无法操作父元素上的事件，所以利用事件冒泡的原理，
+              将子元素的事件委托给父元素，
+              父元素通过事件对象e，判断是哪个子元素触发的事件，再执行相应的操作。
+
+
+          */
+
+      var ul = document.querySelector("ul");
+      console.log(ul);
+      // 子元素的事件委托给父元素，
+      // 父元素通过事件对象e，判断是哪个子元素触发的事件，再执行相应的操作。
+      ul.onclick = (e) => {
+        console.log(e.target.innerHTML);
+      };
+    </script>
+  </body>
+</html>

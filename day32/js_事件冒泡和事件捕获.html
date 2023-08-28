@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #out {
+        width: 200px;
+        height: 200px;
+        background-color: sienna;
+      }
+      #in {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="out">
+      <div id="in"></div>
+    </div>
+    <script>
+      /*
+
+      事件冒泡：
+      沿着子元素到父元素的路径进行
+      事件从当前元素向上层元素传递的过程
+      当前元素 -> 上一层元素 -> 上一层元素的上一层元素 -> ...
+
+      事件捕获：
+      沿着父元素到子元素的路径进行
+      事件从最低层元素开始，逐层向上级元素传递的过程
+      最低层元素 -> 下一层元素 -> 下一层元素的下一层元素 -> ...
+      使用事件捕获:可以在 addEventListener 方法中设置 true ；
+
+      在 DOM 结构中，事件捕获通常，而事件冒泡则相反。
+
+
+例如：
+假设您有一个按钮和一个段落元素，当点击按钮时，您可能想要触发段落元素上的事件处理程序。
+    使用事件冒泡，事件顺序如下：
+        按钮点击事件。
+        按钮的父元素上的事件。
+        按钮的父元素的父元素上的事件。
+        ...
+    使用事件捕获，事件顺序如下：
+        最低层段落元素上的事件。
+        段落的父元素上的事件。
+        段落的父元素的父元素上的事件。
+        ...
+       */
+
+      var out = document.getElementById("out");
+      var in_ = document.getElementById("in");
+
+      // 事件冒泡
+      out.addEventListener("click", function () {
+        console.log("out");
+      });
+      in_.addEventListener("click", function () {
+        console.log("in");
+      });
+      document.addEventListener("click", function () {
+        console.log("document");
+      });
+
+      //   // 事件捕获
+      //   out.addEventListener(
+      //     "click",
+      //     function () {
+      //       console.log("out");
+      //     },
+      //     true
+      //   );
+      //   in_.addEventListener(
+      //     "click",
+      //     function () {
+      //       console.log("in");
+      //     },
+      //     true
+      //   );
+      //   document.addEventListener("click", function () {
+      //     console.log("document");
+      //   });
+    </script>
+  </body>
+</html>

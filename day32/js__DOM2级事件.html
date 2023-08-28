@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">添加</button>
+    <button id="btn2">移出</button>
+    <script>
+      /*
+      dom 0级事件
+      obj.onclick = function(){}
+      obj.onclick = null
+      (一个对象只能添加一个相同的事件)
+
+
+      dom 2级事件
+      obj.addEventListener('click',function(){},true)
+      obj.removeEventListener('click',function(){})
+      (一个对象可以添加多个相同的事件)
+
+
+
+
+      */
+
+      var btn = document.getElementById("btn");
+      var btn2 = document.getElementById("btn2");
+
+      // 添加事件1
+      btn.addEventListener("click", fn, true);
+      function fn() {
+        console.log("hello");
+      }
+
+      // 添加事件2
+      btn.addEventListener("click", function () {
+        console.log("hello2");
+      });
+
+      // 移出事件1
+      btn2.addEventListener("click", function () {
+        btn.removeEventListener("click", fn, true);
+      });
+    </script>
+  </body>
+</html>

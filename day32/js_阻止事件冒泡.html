@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // 鼠标点击位置生成一个div;下一次点击删除上一次生成的div
+      document.onclick = (e) => {
+        // 清除上一次生成的div
+        // document.body.removeChild(document.body.lastChild);
+        // 生成div
+        var div = document.createElement("div");
+        document.body.appendChild(div);
+        div.classList.add("box");
+
+        // 位置
+        div.style.left = e.clientX - div.offsetWidth / 2 + "px";
+        div.style.top = e.clientY - div.offsetHeight / 2 + "px";
+
+        var btn = document.createElement("button");
+        btn.innerHTML = "删除";
+        div.appendChild(btn);
+
+        // 点击div里面的删除按钮，删除当前div
+        btn.onclick = (event) => {
+          btn.parentNode.remove();
+          //   -----------------------------------------------
+          // 阻止事件冒泡
+          event.stopPropagation();
+        };
+      };
+    </script>
+  </body>
+</html>
