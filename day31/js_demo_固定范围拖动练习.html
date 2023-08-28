@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #container {
+        width: 300px;
+        height: 300px;
+        border: 3px solid #000;
+        position: relative;
+        margin: 50px;
+      }
+      #box {
+        width: 50px;
+        height: 50px;
+        background-color: skyblue;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="box"></div>
+    </div>
+    <script>
+      var container = document.getElementById("container");
+      var box = document.getElementById("box");
+      // container距离窗口的距离
+      var containerX = container.offsetLeft;
+      var containerY = container.offsetTop;
+      //   // box
+      //   var boxX = box.offsetWidth;
+      //   var boxY = box.offsetHeight;
+      //   console.log(boxX, boxY);
+
+      // 鼠标点击事件
+      box.onmousedown = (e) => {
+        console.log("点击");
+        // 鼠标在box中的位置
+        var x = e.offsetX;
+        var y = e.offsetY;
+        // // 鼠标移动事件
+        document.onmousemove = (e) => {
+          // 鼠标在浏览器中位置
+          var clientX = e.clientX;
+          var clientY = e.clientY;
+          // box位置
+          // 需要添加条件，box只在container中移动，不能超出
+          if (1) {
+            box.style.left = clientX - containerX - x + "px";
+            box.style.top = clientY - containerY - y + "px";
+          }
+        };
+      };
+      // 鼠标抬起事件
+      document.onmouseup = (e) => {
+        console.log("抬起");
+        document.onmousemove = null;
+      };
+    </script>
+  </body>
+</html>
