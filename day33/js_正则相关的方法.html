@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      字符串方法：
+
+      match()       在字符串中查找一个或多个正则表达式的匹配，返回匹配项
+      replace()     在字符串中用一些字符替换另一个字符串
+      search()      在字符串中查找一个或多个正则表达式的匹配，返回匹配项的索引
+
+
+      正则中：  g为全局匹配,  i为忽略大小写，  m为多行匹配
+
+      */
+
+      let str = "lorem ipsum dolOr sit amet helili Helili";
+      let reg = /helili/gi;
+
+      console.log(str.match(reg));
+      console.log(str.replace(reg, "HELILI"));
+      console.log(str.search(reg));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      1、写出下面代码执行后正确顺序的输出结果以及原因解析。
+      var a=1;
+      function fun1(){
+      console.log(a);
+      }
+      function fun2(){
+      console.log(a);
+      var a=2;
+      console.log(a);
+      }
+
+
+      fun1();           // 1
+      fun2();           // undefined  2
+      console.log(a);   // 1
+      */
+
+      /*
+      2、分析程序的运行结果：
+      var test=new Boolean();
+      console.log(test);    // false
+
+      var test=new Boolean(0);
+      console.log(test);    // false
+
+      var test=new Boolean(null);
+      console.log(test);    // false
+
+      var test=new Boolean("");
+      console.log(test);     // false
+
+      var test=new Boolean(NaN);
+      console.log(test);     // false
+
+      var test=new Boolean(1);
+      console.log(test);     // true
+      */
+
+      /*
+      3、分析程序的运行结果：
+      var bar = true;
+      console.log(bar + 0);      // 1
+      console.log(bar + "xyz");  // truexyz
+      console.log(bar + true);   // 2
+      console.log(bar + false);  // 1
+      */
+
+      /*
+      4、分析程序的运行结果：
+      var z = 1, y = z = typeof y;
+      console.log(y);
+      console.log(z);
+      var x = x;
+      console.log(x);
+      */
+
+      // 结果：undefined  1  undefined
+
+      /*
+      5、分析程序的运行结果：
+
+          function fn1()
+          {
+              return 100;
+              return 1;
+          }
+
+          var fn2 = function()
+          {
+              return 2;
+          }
+
+          console.log(fn1());
+          console.log(fn2());
+      */
+
+      // 结果：100  2
+
+      /*
+      6、分析程序的运行结果：
+      var fn2 = function()
+      {
+          return 2;
+      }
+      console.log(fn1());
+      console.log(fn2());
+      //函数声明提升
+      function fn1()
+      {
+          return 1;
+      }
+      */
+
+      // 结果：undefined  2
+
+      /*
+      7、将一组信息，以合适的格式渲染在页面上。
+          var arr =[
+              {id:1,name:'小明1',gender:'男'},
+              {id:2,name:'小明2',gender:'男'},
+              {id:3,name:'小明3',gender:'女'},
+              {id:4,name:'小明4',gender:'男'}
+          ]
+      */
+
+      var arr = [
+        { id: 1, name: "小明1", gender: "男" },
+        { id: 2, name: "小明2", gender: "男" },
+        { id: 3, name: "小明3", gender: "女" },
+        { id: 4, name: "小明4", gender: "男" },
+      ];
+
+      (() => {
+        var table = document.createElement("table");
+        document.body.appendChild(table);
+        table.style.border = "1px solid black";
+        table.style.borderCollapse = "collapse";
+        table.style.width = "300px";
+
+        var tr = document.createElement("tr");
+        table.appendChild(tr);
+
+        var th = document.createElement("th");
+        tr.appendChild(th);
+        th.style.border = "1px solid black";
+        th.innerHTML = "编号";
+
+        var th = document.createElement("th");
+        tr.appendChild(th);
+        th.style.border = "1px solid black";
+        th.innerHTML = "姓名";
+
+        var th = document.createElement("th");
+        tr.appendChild(th);
+        th.style.border = "1px solid black";
+        th.innerHTML = "性别";
+
+        for (var i = 0; i < arr.length; i++) {
+          var tr = document.createElement("tr");
+          table.appendChild(tr);
+
+          var td = document.createElement("td");
+          td.style.border = "1px solid black";
+          tr.appendChild(td);
+          td.innerHTML = arr[i].id;
+
+          var td = document.createElement("td");
+          td.style.border = "1px solid black";
+          tr.appendChild(td);
+          td.innerHTML = arr[i].name;
+
+          var td = document.createElement("td");
+          td.style.border = "1px solid black";
+          tr.appendChild(td);
+          td.innerHTML = arr[i].gender;
+        }
+      })();
+    </script>
+  </body>
+</html>

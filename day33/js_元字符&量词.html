@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      .	    查找单个字符，除了换行符或行终止符。
+      \w	查找单词字符。
+      \W	查找非单词字符。
+      \d	查找数字。
+      \D	查找非数字字符。
+      \s	查找空白字符。
+      \S	查找非空白字符。
+
+      */
+
+      let str = "helili hehe swift 2020 8 10";
+      // let reg = /h+/g;
+      // let reg = /\d+/g;
+      // let reg = /0{1,2}/g;
+      // let reg = /0$/g;
+      let reg = /0/g;
+      console.log(str.match(reg));
+    </script>
+  </body>
+</html>

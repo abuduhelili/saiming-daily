@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        height: 20px;
+      }
+      table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      th {
+        width: 100px;
+        height: 30px;
+        border: 1px solid #000;
+      }
+      td {
+        width: 100px;
+        height: 30px;
+        border: 1px solid #000;
+      }
+      td:nth-child(2) {
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="txt1" placeholder="用户名" />
+      <span id="span1"></span>
+    </div>
+    <div>
+      <input type="text" id="txt2" placeholder="手机号" />
+      <span id="span2"></span>
+    </div>
+    <div><button id="btn">提交</button></div>
+    <div>
+      <table>
+        <tr>
+          <th>用户名</th>
+          <th>手机号</th>
+        </tr>
+        <tr>
+          <td id="userName"></td>
+          <td id="userNumber"></td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      // 获取元素
+      var txt1 = document.getElementById("txt1");
+      var span1 = document.getElementById("span1");
+      var txt2 = document.getElementById("txt2");
+      var span2 = document.getElementById("span2");
+      var btn = document.getElementById("btn");
+      var table = document.getElementById("table");
+      var userName = document.getElementById("userName");
+      var userNumber = document.getElementById("userNumber");
+
+      var flag = false; // 判断整个表单是否填写完整正确
+      // userName
+      txt1.onfocus = () => {
+        span1.innerHTML = "(请输入用户名)";
+        span1.style.color = "blue";
+      };
+      txt1.onblur = () => {
+        let reg = /^[a-zA-Z][a-zA-Z0-9_]{4,7}$/gi;
+        // let regNun = /^[a-zA-Z0-9_]{6,8}$/;
+        if (reg.test(txt1.value)) {
+          span1.innerHTML = "(用户名有效)";
+          span1.style.color = "green";
+          flag = true;
+        } else if (txt1.value == "") {
+          span1.innerHTML = "(用户名不能为空)";
+          span1.style.color = "#000";
+        } else {
+          span1.innerHTML = "(用户名无效,请重新输入！)";
+          span1.style.color = "red";
+          flag = false;
+        }
+      };
+
+      // userNumber
+      txt2.onfocus = () => {
+        span2.innerHTML = "(请输入手机号)";
+        span2.style.color = "blue";
+      };
+      txt2.onblur = () => {
+        let reg = /^1[3456789]\d{6,9}$/gi;
+        // let regNun = /^[a-zA-Z0-9_]{6,8}$/;
+
+        if (reg.test(txt2.value)) {
+          span2.innerHTML = "(手机号有效)";
+          span2.style.color = "green";
+          flag = true;
+        } else if (txt2.value == "") {
+          span2.innerHTML = "(手机号不能为空)";
+          span2.style.color = "#000";
+        } else {
+          span2.innerHTML = "(手机号无效,请重新输入！)";
+          span2.style.color = "red";
+          flag = false;
+        }
+      };
+
+      // table上显示结果
+      btn.onclick = () => {
+        if (flag) {
+          userName.innerHTML = txt1.value;
+          userNumber.innerHTML = txt2.value;
+        }
+      };
+    </script>
+  </body>
+</html>

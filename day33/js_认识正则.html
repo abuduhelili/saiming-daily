@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <form action="#">
+        <input type="text" id="txt" placeholder="手机号码" />
+        <span id="span">请输入手机号</span>
+      </form>
+    </div>
+
+    <script>
+      /*
+      
+      正则表达式：
+      是一种字符模式。该模式用于对文本进行模式匹配的“搜索和替换”功能。
+
+       */
+
+      //  验证输入的手机号码是否正确
+
+      var txt = document.getElementById("txt");
+      var span = document.getElementById("span");
+
+      // obj.onblur   失去焦点时执行
+      txt.onblur = function () {
+        var reg =
+          /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/;
+        if (reg.test(this.value)) {
+          span.innerHTML = "手机号码格式正确";
+          span.style.color = "green";
+        } else {
+          span.innerHTML = "手机号码格式不正确";
+          span.style.color = "red";
+        }
+      };
+    </script>
+  </body>
+</html>
