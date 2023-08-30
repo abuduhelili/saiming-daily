@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function Div(width, height, color, x, y) {
+      this.width = width;
+      this.height = height;
+      this.color = color;
+      this.x = x;
+      this.y = y;
+
+      this.createDiv = function () {
+        this.div = document.createElement("div");
+        this.div.style.width = this.width;
+        this.div.style.height = this.height;
+        this.div.style.backgroundColor = this.color;
+        this.div.style.position = "absolute";
+        this.div.style.left = this.x;
+        this.div.style.top = this.y;
+
+        document.body.appendChild(this.div);
+      };
+    }
+
+    var div1 = new Div("200px", "100px", "red", "10px", "50px");
+    div1.createDiv();
+
+    var div2 = new Div("200px", "100px", "blue", "10px", "200px");
+    div2.createDiv();
+  </script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        创建对象的方式1：
+                var obj = new Object()
+        添加属性：obj.name = 'henry';
+        添加方法：obj.getName = ()=>{console.log(this.name)}
+        访问属性：console.log(obj.name);
+                console.log(obj['name'])
+        访问方法：obj.getName();
+        删除属性：delete obj.name;
+        删除方法：delete obj.getName;
+
+        ...
+        */
+
+      var my = new Object();
+      my.name = "henry";
+      my.age = 22;
+      my.gender = "男";
+      my.getName = () => {
+        console.log(my["name"]);
+      };
+      my.getAge = () => {
+        console.log(my["age"]);
+      };
+      delete my.gender;
+      delete my.getAge;
+      console.log(my);
+      my.getName();
+      // my.getAge();
+    </script>
+  </body>
+</html>

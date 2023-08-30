@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+
+            1、如何阻止事件冒泡，如何阻止默认事件。
+              e.stopPropagation(); //阻止事件冒泡
+              e.preventDefault(); //阻止默认事件
+
+            2、什么是事件委托。
+
+              事件委托是一种常用的 DOM 操作技术，
+              它允许将事件处理程序绑定到一个父元素上，而不是直接绑定到每个子元素上。
+              当触发事件时，事件会冒泡到父元素，然后在父元素上执行绑定的事件处理程序。
+
+              使用事件委托可以减少代码量和提高性能，
+              特别是在处理大量动态添加的子元素时。
+              通过将事件处理程序绑定到父元素上，
+              我们只需要在父元素上编写一次事件处理程序，
+              而不需要为每个子元素都编写一遍
+
+            3、分析程序的运行结果
+              var trees = ["xyz","xxxx","test","ryan","apple"];
+              delete trees[3];
+              console.log(trees.length);  // 5
+
+              (使用 delete 操作符删除一个元素时，数组的长度不会减少，可以用splice。)
+
+            4、分析程序的运行结果
+              var a = [0];
+              if (a) {    // a位数组对象，if语句中成立，但不等于true，所以 a == true 为false;
+                console.log(a == true);   // false
+              } else {
+                console.log(a);
+              }
+
+            5、分析程序的运行结果
+              (function () {
+                var a = (b = 5);
+              })();
+
+              console.log(b);    // 5
+              console.log(a);    // 语法错误，因为a用 var 定义的;
+
+            6、正则完成， 一组蔬菜英文(Potato、Carrot、Onion、Aubergine、Celery、White Cabbage、 Cauliflower)
+               输出含有“o”或者含有“f”的单词
+            let vegetables = [
+              "Potato",
+              "Carrot",
+              "Onion",
+              "Aubergine",
+              "Celery",
+              "White Cabbage",
+              "Cauliflower",
+            ];
+            let regex = /o|f/gi;
+            vegetables.filter((vegetable) => regex.test(vegetable));
+            console.log(vegetables);
+
+            7、上机编程题
+            某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，
+            加密规则如下：每位数字都加上3,然后用除以10的余数代替该数字，
+            再将第一位和第四位交换，第二位和第三位交换，
+            请编写一个函数，传入原文，输出密文。
+
+              */
+      // function f7(str) {
+      //   const arr = str.split("").map(Number);
+      //   for (let i = 0; i < arr.length; i++) {
+      //     arr[i] += 3;
+      //     arr[i] %= 10;
+      //   }
+      //   arr.splice(0, 0, arr[3]);
+      //   arr.splice(3, 1);
+      //   arr.splice(1, 0, arr[2]);
+      //   arr.splice(3, 1);
+
+      //   return arr.join("");
+      // }
+
+      // const original = "1234";
+      // const encrypted = f7(original);
+
+      // console.log(encrypted); // 输出："4321"
+    </script>
+  </body>
+</html>
