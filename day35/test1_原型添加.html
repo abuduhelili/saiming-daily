@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test1</title>
+  </head>
+  <body></body>
+  <script>
+    // 给String原型添加一个首字符大写的方法
+    String.prototype.toUpperFrist = function () {
+      return this.charAt(0).toUpperCase() + this.slice(1);
+    };
+    var str = "hello world";
+    console.log(str.toUpperFrist());
+
+    // 原型添加数组去重
+    Array.prototype.unique = function () {
+      var temp = []; // 创建temp临时数组
+      for (var i = 0; i < this.length; i++) {
+        // 遍历数组，若不存在，加入到temp中
+        if (!temp.includes(this[i])) {
+          temp.push(this[i]);
+        }
+      }
+      return temp;
+    };
+    var arr = [1, 1, 2, 2, 3, 4, 5, 5, 6, 6];
+    console.log(arr.unique());
+  </script>
+</html>

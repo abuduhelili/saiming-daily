@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function Div(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.color = color;
+    this.x = x;
+    this.y = y;
+  }
+
+  Div.prototype.createDiv = function () {
+    this.div = document.createElement("div");
+    document.body.appendChild(this.div);
+    this.div.style.width = this.width + "px";
+    this.div.style.height = this.height + "px";
+    this.div.style.backgroundColor = this.color;
+    this.div.style.position = "absolute";
+    this.div.style.left = this.x + "px";
+    this.div.style.top = this.y + "px";
+  };
+
+  Div.prototype.moveDiv = function () {
+    var x = this.x; // 获取div的left值
+    // 创建定时器
+    // 必须用箭头函数，否则timer里面的this不会指向Div
+    var timer = window.setInterval(() => {
+      x++;
+      this.div.style.left = x + "px";
+      // 清除定时器
+      if (x > window.innerWidth - this.width) {
+        window.clearInterval(timer);
+      }
+    }, 10);
+  };
+
+  //
+  var div1 = new Div("200", "100", "red", "0", "100");
+  // 创建
+  div1.createDiv();
+  // 移动
+  div1.moveDiv();
+</script>

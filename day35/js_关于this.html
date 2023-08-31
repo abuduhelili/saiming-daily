@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  /*
+    关于this：
+    可以认为：谁调用该方法，this就指向谁
+    */
+
+  /* 1-普通函数中的this  -指向window对象
+  function fn() {
+    console.log(this);
+  }
+  fn();
+*/
+
+  /* 2-立即执行函数中的this  -指向window对象
+  (function () {
+    console.log(this);
+  })();
+*/
+
+  /* 3-定时器中的this   -指向window对象
+  //   var timer = setTimeout(function () {
+  //     console.log(this);
+  //   }, 1000);
+
+  //   var timer = setInterval(function () {
+  //     console.log(this);
+  //   }, 1000);
+  //   箭头函数中的this例外，不会指向window对象
+*/
+
+  /* 4-事件处理函数中的this -指向事件源
+   */
+
+  /* 5-构造函数中的this -指向实例化对象
+   */
+
+  /* 6-原型对象中的this -指向实例化对象
+   */
+
+  /* 普通对象或字面量形式定义的对象 -指向当前对象
+   */
+</script>

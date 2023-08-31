@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function Div(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.color = color;
+    this.x = x;
+    this.y = y;
+  }
+
+  Div.prototype.createDiv = function () {
+    this.div = document.createElement("div");
+    document.body.appendChild(this.div);
+    this.div.style.width = this.width + "px";
+    this.div.style.height = this.height + "px";
+    this.div.style.backgroundColor = this.color;
+    this.div.style.position = "absolute";
+    this.div.style.left = this.x + "px";
+    this.div.style.top = this.y + "px";
+  };
+
+  Div.prototype.moveDiv = function () {
+    var x = this.x; // 获取div的left值
+    // 创建定时器
+    // 必须用箭头函数，否则timer里面的this不会指向Div
+    var timer = window.setInterval(() => {
+      x++;
+      this.div.style.left = x + "px";
+      // 清除定时器
+      if (x > window.innerWidth - this.width) {
+        window.clearInterval(timer);
+      }
+    }, 10);
+  };
+
+  function Circle(width, height, color, x, y, r) {
+    // 继承Div
+    Div.call(this, width, height, color, x, y);
+    this.r = r;
+  }
+
+  Circle.prototype = new Div(); // 原型继承
+
+  Circle.prototype.createCircle = function () {
+    // 调用父类的createDiv
+    this.createDiv();
+    // 设置圆心
+    this.div.style.borderRadius = this.r + "%";
+  };
+
+  //
+  var div1 = new Div("100", "100", "red", "0", "0");
+  var cir = new Circle("100", "100", "blue", "0", "150", "50");
+  div1.createDiv();
+  // div1.moveDiv();
+  cir.createCircle();
+  // cir.moveDiv();
+</script>
