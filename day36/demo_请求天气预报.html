@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="txt" placeholder="请输入城市" />
+    <button id="btn">查询</button>
+    <script>
+      var txt = document.getElementById("txt");
+      var btn = document.getElementById("btn");
+      btn.onclick = function () {
+        var city = txt.value;
+        var url =
+          "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=73846187&appsecret=gLWBk7OQ&" +
+          "&city=" +
+          city;
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, true);
+        xhttp.send();
+        xhttp.onreadystatechange = function () {
+          if (xhttp.readyState == 4 && xhttp.status == 200) {
+            var data = JSON.parse(xhttp.responseText);
+            console.log(data);
+            show(data);
+          }
+        };
+
+        function show(data) {
+          var ul = document.createElement("ul");
+          document.body.appendChild(ul);
+          ul.style.listStyle = "none";
+          ul.lineHeight = "20px";
+
+          var li = document.createElement("li");
+          li.innerHTML = `城市:${data.city}`;
+          ul.appendChild(li);
+          var li = document.createElement("li");
+          li.innerHTML = `实时温度:${data.tem}`;
+          ul.appendChild(li);
+          li = document.createElement("li");
+          li.innerHTML = `最高:     ${data.tem1}`;
+          ul.appendChild(li);
+          li = document.createElement("li");
+          li.innerHTML = `最低:     ${data.tem2}`;
+          ul.appendChild(li);
+          li = document.createElement("li");
+          li.innerHTML = `风向:     ${data.win}`;
+          ul.appendChild(li);
+          li = document.createElement("li");
+          li.innerHTML = `风力等级:  ${data.win_speed}`;
+          ul.appendChild(li);
+          li = document.createElement("li");
+          li.innerHTML = `风速:      ${data.win_meter}`;
+          ul.appendChild(li);
+          li = document.createElement("li");
+          li.innerHTML = `湿度:      ${data.humidity}`;
+          ul.appendChild(li);
+          li = document.createElement("li");
+          li.innerHTML = `能见度:     ${data.visibility}`;
+          ul.appendChild(li);
+        }
+      };
+    </script>
+  </body>
+</html>

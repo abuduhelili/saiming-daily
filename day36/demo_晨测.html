@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 1、分析程序的运行结果
+  // x = 3;
+  // y = 2;
+  // z = (x + 2) / y; // z = 2.5
+  // alert(z);
+
+  /*
+    2、
+    下列的哪一个表达式将返回假 ( )       // B
+    A.!(3<=1)
+    B.(4>=4)&&(5<=2)
+    C.("a"=="a")&&("c"!="d")
+    D.(2<3)||(3<2)
+    */
+
+  // 3、
+  // var a1 = 10;
+  // var a2 = 20;
+  // alert("a1+a2=" + a1 + a2); // a1+a2=1020
+  // alert(a1 + a2); // 30
+
+  // 4、把字母变为小写字母的方法是 ，变为大写字母的方法是.
+  //            toLowerCase()       toUpperCase()
+
+  // 5、
+  // 分析下面的 Javascript 代码段，输出结果是（ ）
+  // var mystring = "I am a student";
+  // var a = mystring.substring(9, 13);      // a = 'udent'
+  // document.write(a);
+
+  // 6、
+  // 分析下面的 Javascript 代码段，输出结果是（）
+  // var s1 = parseInt("101 中学");    // s1 = 101
+  // document.write(s1);
+
+  // 7、分析程序的运行结果
+  // var x,
+  //   y = null;
+  // console.log(x); // undefined
+  // console.log(y); // null
+  // console.log((x = y)); // null
+  // console.log(x); // null
+  // console.log(y); // null
+  // console.log(x == y); // true
+
+  // 8、
+  // x = "a";
+  // y = "b";
+  // z = false;
+
+  // function testOne() {
+  //   var x = "c";
+  //   var y = "d";
+  //   z = true;
+  //   console.log(x);
+  //   console.log(y);
+  //   console.log(z);
+  // }
+
+  // function testTwo() {
+  //   console.log(x);
+  //   console.log(y);
+  //   console.log(z);
+  // }
+  // testOne(); // c d true
+  // testTwo(); // a b true
+
+  // 9、
+  // console.log(0.1 + 0.2 == 0.3); // false
+
+  // 10、给你一个字符串，要你找出字母和出现的次数，例如：“abaasdffggghhjjkkgfddsssss”；
+  // function countCharacters(str) {
+  //   const charCount = {};
+  //   for (let char of str) {
+  //     charCount[char] = (charCount[char] || 0) + 1;
+  //   }
+  //   return charCount;
+  // }
+
+  // const input = "abaasdffggghhjjkkgfddsssss";
+  // console.log(countCharacters(input));
+
+  /*
+    11、实现一个获取当前页面链接search值的函数。（如下例子中，输入key1输出value1）
+    例："http://test.com/index?key1=value1&key2=value2"
+  */
+
+  // var search = "http://test.com/index?key1=value1&key2=value2";
+  // (function getSearchValue(search, key) {
+  //   // let search = window.location.search;
+  //   // 截取key=value部分
+  //   var allKeyAndValue = search.substring(search.indexOf(key));
+  //   if (allKeyAndValue.includes("&")) {
+  //     // key后面还有多个key
+  //     var value = allKeyAndValue.substring(
+  //       allKeyAndValue.indexOf("=") + 1,
+  //       allKeyAndValue.indexOf("&")
+  //     );
+  //     // key在最后
+  //   } else {
+  //     var value = allKeyAndValue.substring(allKeyAndValue.indexOf("=") + 1);
+  //   }
+  //   console.log(value);
+  // })(search, "key2");
+
+  /*
+    12、把一组数据渲染在页面
+    <div>
+        百度一下
+    </div>
+
+    var data = [
+        {title :"百度一下",url:"https://www.baidu.com"},
+        {title:"网易生活",url:"https://www.163.com"}
+    ]
+  */
+
+  // var data = [
+  //   { title: "百度一下", url: "https://www.baidu.com" },
+  //   { title: "网易生活", url: "https://www.163.com" },
+  // ];
+  // (function render(data) {
+  //   let ul = document.createElement("ul");
+  //   document.body.appendChild(ul);
+  //   ul.style.listStyle = "none";
+  //   for (let item of data) {
+  //     let li = document.createElement("li");
+  //     ul.appendChild(li);
+
+  //     let a = document.createElement("a");
+  //     li.appendChild(a);
+  //     a.innerText = item.title;
+  //     a.href = item.url;
+  //   }
+  // })(data);
+</script>

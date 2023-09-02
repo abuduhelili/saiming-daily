@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    /*
+        json:
+        JSON.parse()	    解析 JSON 字符串并返回 JavaScript 对象。
+        JSON.stringify()	将 JavaScript 对象转换为 JSON 字符串。
+
+        */
+
+    // 一个对象
+    var obj = {
+      name: "Runoob",
+      url: "www.runoob.com",
+    };
+
+    console.log(obj);
+    console.log("---------------");
+
+    // 转换为json
+    var json = JSON.stringify(obj);
+    console.log(json);
+
+    // 解析json为对象
+    obj2 = JSON.parse(json);
+    console.log(obj2);
+  </script>
+</html>
