@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="setCookie">添加cookie</button>
+    <button id="getCookie">获取cookie</button>
+    <button id="removeCookie">删除cookie</button>
+  </body>
+  <script src="./cookie.js"></script>
+  <script>
+    var setBtn = document.getElementById("setCookie");
+    var getBtn = document.getElementById("getCookie");
+    var removeBtn = document.getElementById("getCookie");
+
+    setBtn.onclick = function () {
+      setCookie("username", "helili", 2);
+    };
+
+    getBtn.onclick = function () {
+      getCookie("username");
+    };
+
+    removeBtn.onclick = function () {
+      removeCookie("username");
+    };
+  </script>
+</html>

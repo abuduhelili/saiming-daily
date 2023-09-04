@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" name="userName" id="userName" placeholder="用户名" />
+      <input type="password" name="userPsw" id="userPsw" placeholder="密码" />
+    </form>
+    <button id="btn">登录</button>
+  </body>
+  <script>
+    // http://121.89.192.46:7777/sys/login
+    // userName:zhaocx
+    // userPsw:zhaocx
+
+    var userName = document.getElementById("userName");
+    var userPsw = document.getElementById("userPsw");
+    var btn = document.getElementById("btn");
+
+    btn.onclick = function () {
+      var userNameVal = userName.value;
+      var userPswVal = userPsw.value;
+      console.log(userNameVal, userPswVal);
+
+      var xhr = new XMLHttpRequest();
+      var url = "http://121.89.192.46:7777/sys/login";
+      xhr.open("POST", url, true);
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.send("userName=" + userNameVal + "&userPsw=" + userPswVal);
+      xhr.onreadystatechange = function () {
+        console.log("test");
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var data = JSON.parse(this.responseText);
+          var token = data.data.token;
+          console.log(token);
+        }
+      };
+    };
+  </script>
+</html>

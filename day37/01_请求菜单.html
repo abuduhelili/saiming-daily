@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    (function () {
+      var xhttp = new XMLHttpRequest();
+      var url = "http://121.89.192.46:7777/me/menus";
+      xhttp.open("GET", url, true);
+      xhttp.send();
+      xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+          var data = JSON.parse(this.responseText);
+          console.log(data.data);
+          console.log("test1");
+          // 渲染数据
+          show(data.data);
+        }
+      };
+    })();
+    function show(data) {
+      // 主体div
+      var div = document.createElement("div");
+      document.body.appendChild(div);
+      div.id = "box";
+      div.style.display = "flex";
+      div.style.justifyContent = "space-between";
+      div.style.width = 120 * data.length + "px";
+      div.style.height = "300px";
+      div.style.border = "2px solid #000";
+
+      for (var i = 0; i < data.length; i++) {
+        // 菜单选项
+        var div1 = document.createElement("div");
+        div.appendChild(div1);
+
+        div1.id = "div" + i;
+        // console.log(div1.id);
+
+        var title = document.createElement("div");
+        var menu = document.createElement("div");
+        div1.appendChild(title);
+        div1.appendChild(menu);
+
+        title.id = "title" + i;
+        menu.id = "menu" + i;
+        // console.log(title.id);
+        // console.log(menu.id);
+
+        div1.style.backgroundColor = "#ccc";
+        div1.style.width = "110px";
+        div1.style.height = 60 + "px";
+        title.innerHTML = data[i].name;
+        title.style.textAlign = "center";
+        title.style.lineHeight = "60px";
+        title.style.borderBottom = "2px solid #000";
+
+        menu.style.marginTop = "20px";
+        // menu隐藏，不显示
+        menu.style.display = "none";
+
+        // 菜单下的子选项
+        for (let j = 0; j < data[i].menuList.length; j++) {
+          var menuDiv = document.createElement("div");
+          menu.appendChild(menuDiv);
+          menuDiv.id = "menuDiv" + j;
+          menuDiv.style.width = "100%";
+          menuDiv.style.height = "60px";
+          menuDiv.style.backgroundColor = "pink";
+          menuDiv.style.lineHeight = "60px";
+          menuDiv.style.textAlign = "center";
+          menuDiv.innerHTML = data[i].menuList[j].name;
+        }
+      }
+
+      // 当鼠标移入菜单选项时，显示对应的子菜单
+      // 还未实现
+
+      //   var box = document.getElementById("box");
+      //   box.onmouseover = function (e) {
+      //     titleid = e.target.id; // 获取点击的标题的id
+      //     if (titleid == "title0") {
+      //       var menu0 = document.getElementById("menu0");
+      //       menu0.style.display = "block";
+      //     } else if (titleid == "title1") {
+      //       var menu1 = document.getElementById("menu1");
+      //       menu1.style.display = "block";
+      //     } else if (titleid == "title2") {
+      //       var menu2 = document.getElementById("menu2");
+      //       menu2.style.display = "block";
+      //     } else if (titleid == "title3") {
+      //       var menu3 = document.getElementById("menu3");
+      //       menu3.style.display = "block";
+      //     } else if (titleid == "title4") {
+      //       var menu4 = document.getElementById("menu4");
+      //       menu4.style.display = "block";
+      //     }
+      //   };
+
+      //   box.onmouseout = function (e) {
+      //     if (titleid == "title0") {
+      //       menu0.onmouseover = function () {
+      //         menu0.style.display = "block";
+      //       };
+      //       menu0.style.display = "none";
+      //     }
+      //     if (titleid == "title1") {
+      //       menu1.onmouseout = function () {
+      //         menu1.style.display = "none";
+      //       };
+      //     }
+      //     if (titleid == "title2") {
+      //       menu2.onmouseout = function () {
+      //         menu2.style.display = "none";
+      //       };
+      //     }
+      //     if (titleid == "title3") {
+      //       menu3.onmouseout = function () {
+      //         menu3.style.display = "none";
+      //       };
+      //     }
+      //     if (titleid == "title4") {
+      //       menu4.onmouseout = function () {
+      //         menu4.style.display = "none";
+      //       };
+      //     }
+      //   };
+    }
+  </script>
+</html>

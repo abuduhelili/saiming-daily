@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>添加cookie</button>
+    <button id="getCookie">获取cookie</button>
+    <button id="removeCookie">删除cookie</button>
+  </body>
+  <script>
+    /*
+    cookie：
+
+     */
+
+    var btn = document.querySelector("button");
+    btn.onclick = function () {
+      // 设置cookie值
+      var userName = "合力力";
+      userName = encodeURI(userName);
+      var userPsw = "123456";
+
+      // 设置有效期
+      var expires = new Date();
+      expires.setDate(expires.getDate() + 2); // 2天
+
+      // 添加cookie
+      document.cookie = "userName=" + userName + ";expires=" + expires;
+      document.cookie = "userPsw=" + userPsw + ";expires=" + expires;
+    };
+  </script>
+</html>

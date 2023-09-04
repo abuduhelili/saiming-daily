@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // 1、分析程序的运行结果
+    console.log(1 / 0); // Infinity
+    console.log(-1 / 0); // -Infinity
+    console.log(0 / 0); // NaN
+
+    //     2、分析程序的运行结果
+    var x = 0.3 - 0.2;
+    console.log(x == 0.1); // false
+
+    //     3、分析程序的运行结果
+    console.log(typeof NULL); // Undefined
+    console.log(typeof null); // Object
+
+    //     4、分析程序的运行结果
+    function fn() {}
+    console.log(fn() == undefined); // true
+
+    //     5、NaN 是什么？它的类型是什么？你如何测试一个值是否等于 NaN
+    /*      NaN（Not a Number）是一个特殊的值，表示一个数字值无法表示或表示为有效的数字。
+            它是一个浮点数，并且所有数字值与 NaN 进行比较时都会返回 false。
+            NaN 的类型是 Number。
+            要测试一个值是否等于 NaN，可以使用 isNaN() 函数。
+            这个函数接收一个数字或字符串作为参数，并返回一个布尔值，表示该值是否为 NaN。
+    */
+
+    //     6、分析程序的运行结果
+    console.log(typeof "3"); // string
+    console.log(typeof +"3"); // number
+    console.log(typeof ("" + 3)); // string
+
+    //     7、如何清空一个数组。var arr = ['a','b','c','d','e','f'];
+    //      arr.splice(0, arr.length); 或  let emptyArr = arr.slice(0, 0);
+
+    //     8、分析程序的运行结果
+    var salary = "1000$";
+    (function () {
+      var salary;
+      console.log("Original salary was " + salary); // Original salary was undefined
+
+      salary = "5000$";
+
+      console.log("My New Salary " + salary); // My New Salary 5000$
+    })();
+
+    //     9、分析程序的运行结果
+    var a = 3;
+    var b = new Number(3);
+    var c = 3;
+    console.log(a == b); // true
+    console.log(a === b); // false
+    console.log(b === c); // false
+
+    //     10、
+    //     上机编程，封装一个函数， fn(a,n).返回的结果是s = a+aa+aaa+aaaa....+aaa....的值.n是个数。
+    //     例如：fn(3,5)  s= 3+33+333+3333+33333
+    // function fn(a, n) {
+    //   let s = 0;
+    //   let t = 0;
+
+    //   for (let i = 1; i <= n; i++) {
+    //     t = t * 10 + a;
+    //     s += t;
+    //   }
+    //   return s;
+    // }
+    // console.log(fn(3, 3)); // 输出 3+33+333
+  </script>
+</html>
