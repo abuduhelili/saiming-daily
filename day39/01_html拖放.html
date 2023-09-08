@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box1 {
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+        border: 2px solid black;
+        text-align: center;
+        line-height: 50px;
+        color: red;
+      }
+      #box2 {
+        width: 200px;
+        height: 200px;
+        background-color: #ccc;
+        text-align: center;
+        line-height: 200px;
+        position: absolute;
+        left: 100px;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1" draggable="true">垃圾2</div>
+    <div id="box2">回收站</div>
+  </body>
+  <script>
+    /*
+    HTML5拖放：
+
+    被拖动对象：   需要指定draggable="true"
+    事件：
+        ondragstart  开始拖动
+        ondrag       拖动中
+        ondragend    拖动结束
+
+
+    目的地对象:    需要指定ondragover="allowDrop(event)"
+    事件：
+        ondragenter  进入目的地
+        ondragover   在目的地中拖动
+        ondragleave  离开目的地
+        ondrop       放置在目的地中
+
+    数据通信：
+        event.dataTransfer.setData(key, value);  //设置数据
+        event.dataTransfer.getData(key);         //获取数据
+
+    */
+
+    var box1 = document.getElementById("box1");
+    var box2 = document.getElementById("box2");
+
+    box1.ondragstart = function (e) {
+      // 设置数据
+      e.dataTransfer.setData("text", e.target.innerHTML);
+    };
+    box1.ondrag = function (e) {
+      e.preventDefault();
+      console.log("拖动中");
+    };
+    box1.ondragend = function (e) {
+      e.preventDefault();
+      console.log("拖动结束");
+    };
+
+    box2.ondragenter = function (e) {
+      e.preventDefault();
+    };
+    box2.ondragover = function (e) {
+      e.preventDefault();
+    };
+    box2.ondragleave = function (e) {
+      e.preventDefault();
+    };
+
+    box2.ondrop = function (e) {
+      e.preventDefault();
+      // 获取数据
+      var str = e.dataTransfer.getData("text");
+      console.log(str);
+      box1.remove();
+    };
+  </script>
+</html>

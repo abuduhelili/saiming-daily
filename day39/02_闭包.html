@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  /*
+  闭包：函数嵌套函数+函数内部能访问(使用)外部函数的变量
+  优点：可以长久保存数据
+  缺点：内存泄漏
+   */
+
+  function fn() {
+    var x = 100;
+    function fnInner() {
+      return x;
+    }
+    return fnInner;
+  }
+  var f = fn(); // 此时f为函数
+  console.log(f());
+</script>

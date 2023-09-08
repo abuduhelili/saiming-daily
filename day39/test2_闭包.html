@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>0</li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </body>
+  <script>
+    // 一组li，要求点击时输出它的索引，闭包实现
+
+    // 普通方法：1：for循环添加索引属性 ；2：for循环用let
+    // 闭包方法：
+    var lis = document.querySelectorAll("li");
+    for (var i = 0; i < lis.length; i++) {
+      (function (i) {
+        lis[i].onclick = function () {
+          console.log(i);
+        };
+      })(i);
+    }
+  </script>
+</html>
