@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>
+      <input id="width" type="text" />
+    </div>
+    <div>
+      <input id="height" type="text" />
+    </div>
+    <div>
+      <input type="color" name="" id="color" />
+    </div>
+    <button id="setBtn">存储</button>
+    <button id="removeBtn">删除</button>
+  </body>
+  <script>
+    var btn = document.getElementById("btn");
+    var width = document.getElementById("width");
+    var height = document.getElementById("height");
+    var color = document.getElementById("color");
+
+    setBtn.onclick = function () {
+      // 生成对象
+      var obj = {
+        width: width.value,
+        height: height.value,
+        color: color.value,
+      };
+      // 存储对象
+      localStorage.setItem("style", JSON.stringify(obj));
+    };
+
+    removeBtn.onclick = function () {
+      // 删除对象
+      localStorage.removeItem("style");
+    };
+  </script>
+</html>

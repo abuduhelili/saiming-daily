@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="set">存数据</button>
+    <button id="get">取数据</button>
+    <button id="remove">删除数据</button>
+</body>
+<script>
+    /*
+    window.localStorage   setItem() getItem() removeItem()
+    window.sesstionStorage setItem() getItem() removeItem()
+    */
+    var setBtn = document.getElementById("set");
+    var getBtn = document.getElementById("get");
+    var removeBtn = document.getElementById("remove");
+    setBtn.onclick = function () {
+        //存数据
+        localStorage.setItem("username", "xiaoxiahong....");
+        localStorage.logintime = new Date().toLocaleString();
+    }
+    getBtn.onclick = function () {
+        if (localStorage.username) {
+            //取数据
+            var username = localStorage.getItem("username");
+            console.log(username);
+        }
+        else {
+
+            console.log("没有username.....");
+        }
+        if (localStorage.logintime) {
+            var logintime = localStorage.logintime;
+            console.log("您上次登录的时间是：" + logintime + "欢迎归来...");
+        }
+        else {
+            console.log("欢迎您新朋友");
+        }
+    }
+    removeBtn.onclick = function () {
+        //删除数据
+        localStorage.removeItem("username");
+    }
+</script>
+
+</html>

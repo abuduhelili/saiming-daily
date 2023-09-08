@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 创建canvas -->
+    <canvas id="canvas" width="300" height="300"></canvas>
+  </body>
+  <script>
+    /*
+      canvas:
+      模板：
+      var c=document.getElementById("myCanvas");
+      var cxt=c.getContext("2d");
+      cxt.fillStyle="#FF0000";
+      cxt.fillRect(0,0,150,75);
+
+
+      fillStyle 方法将其染成红色;fillRect  方法规定了形状、位置和尺寸
+
+    */
+    // canvas画出两个矩形
+    var canvas = document.getElementById("canvas");
+    // 设置canvas背景颜色
+    canvas.style.backgroundColor = "yellow";
+    // 获取canvas画布的上下文
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = "red";
+    ctx.fillRect(10, 10, 150, 100);
+    ctx.fillStyle = "blue";
+    ctx.fillRect(10, 130, 150, 100);
+  </script>
+</html>
