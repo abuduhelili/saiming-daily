@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .active {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>hellogril</div>
+    <div>hellogril</div>
+    <div>hello...boy....</div>
+    <div>hello...boy....</div>
+    <div>hello...boy....</div>
+    <div>
+      <p>hello....p</p>
+    </div>
+    <div>
+      <p class="active">包含class=acitve 的p.....</p>
+    </div>
+    <hr />
+    <div></div>
+    <hr />
+    <div style="display: none">hellogril</div>
+    <div style="display: none">hellogril</div>
+    <button>设置</button>
+  </body>
+  <script src="./jquery.js"></script>
+  <script>
+    /*
+    内容
+:contains(text)
+:empty
+:has(selector)
+:parent
+可见性
+:hidden
+:visible
+属性
+[attribute]
+[attribute=value]
+
+    */
+    $("button:eq(0)").click(function () {
+      // console.log($("div:hidden"));
+      // $("div:hidden").css({
+      //     display: "block"
+      // })
+      $("div:hidden").show().addClass("active");
+    });
+
+    /*
+    $("button:eq(0)").click(function () {
+      $("div:empty").css({
+        width: "200px",
+        height: "100px",
+        border: "1px solid red",
+      });
+      $("div:parent").css({
+        width: "200px",
+        height: "100px",
+        border: "1px solid blue",
+      });
+    });
+
+
+    $("button:eq(0)").click(function () {
+      // console.log("hello...");
+
+      $("div:has(p)").css({
+        backgroundColor: "yellow",
+      });
+      $("div:has(.active)").css({
+        backgroundColor: "blue",
+      });
+    });
+
+    
+    $("button:eq(0)").click(function () {
+      $("div:empty").html("hello.....world.....").css({
+        backgroundColor: "yellow",
+        height: "40px",
+        color: "pink",
+      });
+    });
+
+    $("div:contains('boy')").css({
+      backgroundColor: "yellow",
+    });
+     */
+  </script>
+</html>

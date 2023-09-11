@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>这是一个段落......</p>
+    <p>这是一个段落......</p>
+    <p>这是一个段落......</p>
+    <p class="active">这是一个段落......active</p>
+    <p class="active">这是一个段落......active</p>
+    <h1>一级标题</h1>
+    <h2>二级标题</h2>
+    <div></div>
+    <div></div>
+    <div></div>
+    <button>设置</button>
+</body>
+<script src="./jquery.js"></script>
+<script>
+    /*
+    :first
+    :last
+    :not
+    :even
+    :odd
+    :eq
+    :gt
+    :lt
+    :header
+    :animated
+    :focus
+
+    */
+    $("div").css({
+        width: "100px",
+        height: "100px",
+        border: "1px solid red"
+    })
+    $("div:first").animate({
+        width: "1000px"
+    }, 3000);
+    $("button:first").click(function () {
+        $("div:animated").css({ backgroundColor: "yellow" });
+        $("div:not(:animated)").css({ backgroundColor: "blue" });
+    });
+
+    /*$(":header").css("color", "blue");
+     $("p:eq(2)").css({ backgroundColor: "red" });
+     $("p:gt(2)").css({ backgroundColor: "yellow" });
+     $("p:lt(2)").css({ backgroundColor: "blue" });
+ 
+     $("p:even").css({ backgroundColor: "yellow" });
+     $("p:odd").css({ backgroundColor: "blue" });
+    
+       $("p:first").css({ backgroundColor: "yellow" });
+       $("p:last").css({ backgroundColor: "blue" });
+       $("p:not(.active)").css({ border: "2px solid red" });
+       */
+</script>
+
+</html>

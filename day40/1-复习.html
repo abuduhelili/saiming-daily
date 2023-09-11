@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /*
+    闭包：
+    经典面试题：一组Li,要求点击li时，输出它的索引，（设置html的内容为其索引）
+    html5拖拽功能：
+    二个对象：
+    被拖拽的对象
+        ondragstart , ondrag, ondragend
+    目标对象
+        ondragenter , ondragover, ondragleave , ondrop
+
+    event.dataTransfer.setData(key,value)
+    event.dataTransfer.getData(key)    
+    
+    百度地图开放平台API.
+
+    */
+    function fn() {
+        var x = 100;
+        return function () {
+            return x;
+        }
+    }
+    var fun = fn();
+    var s = fun();
+    console.log(s);
+
+</script>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            width: 80px;
+            border: 1px solid blue;
+
+        }
+
+        tr {
+            height: 80px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" placeholder="请输入一个整数" id="txt">
+        <button id="btn">生成格子</button>
+    </div>
+    <div>
+        <table>
+            <tbody>
+                <!-- <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    /*
+    构建一个n*n的格子（n从输入框填写），鼠标放上去背景变成红色，移除恢复正常.
+    鼠标点击格子背景固定为蓝色，鼠标hover时也不变红，再次点击恢复正常
+    格子大小可用css控制，默认背景色都是白色，底色变化使用js来实现
+    */
+    var txt = document.getElementById("txt");
+    var btn = document.getElementById("btn");
+    var tbody = document.querySelector("tbody");
+    btn.onclick = function () {
+        var n = Number(txt.value);
+        tbody.innerHTML = "";//清空tbody
+        // console.log(n);
+        for (var i = 0; i < n; i++) {
+            var tr = document.createElement("tr");
+            tbody.appendChild(tr);
+            for (var j = 0; j < n; j++) {
+                var td = document.createElement("td");
+                td.flag = true;//给每一个td 添加一个flag用来标记是否是正常的
+                tr.appendChild(td);
+            }
+        }
+    }
+    //事件委托
+    tbody.onmouseover = function (event) {
+        if (event.target.flag) {
+
+            event.target.style.backgroundColor = "red";
+        }
+    }
+    tbody.onmouseout = function (event) {
+        if (event.target.flag) {
+
+            event.target.style.backgroundColor = "";
+        }
+    }
+    tbody.onclick = function (event) {
+        // event.tareg.flag = !event.target.flag;
+        if (event.target.flag) {
+            event.target.style.backgroundColor = "blue";
+            event.target.flag = false;
+        }
+        else {
+            event.target.style.backgroundColor = "";
+            event.target.flag = true;
+        }
+    }
+</script>
+
+</html>

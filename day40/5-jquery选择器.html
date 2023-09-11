@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="box">hello...1</div>
+    <div>hello...2</div>
+    <div>hello...3</div>
+    <p>hello...p</p>
+    <p>hello...p</p>
+  </body>
+  <script src="./jquery.js"></script>
+  <script>
+    $("#box~p").css({
+      border: "1px solid red",
+    });
+    /*
+     $("#box+div").css({
+          backgroundColor: "yellow"
+      })
+      
+      console.log($("#box"));
+
+
+      $("#box").css({
+          backgroundColor: "yellow",
+          fontSize: "20px",
+          color: "red"
+      }).click(function () {
+          console.log($(this));
+      });
+      console.log($("p"));
+      */
+  </script>
+</html>
