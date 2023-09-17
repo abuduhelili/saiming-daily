@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" />
+      <span>+</span>
+      <input type="text" />
+      <button>计算</button>
+      <input type="text" />
+    </div>
+  </body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    $("button").click(function () {
+      $("input:eq(2)").val(
+        Number($("input:eq(0)").val()) + Number($("input:eq(1)").val())
+      );
+    });
+  </script>
+</html>

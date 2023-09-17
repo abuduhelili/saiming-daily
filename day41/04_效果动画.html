@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>设置</button>
+    <p>hello--------显示</p>
+    <p style="display: none; color: red">隐藏的p标签</p>
+  </body>
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+  /*
+  基本
+  show([s,[e],[fn]])
+  hide([s,[e],[fn]])
+  toggle([s],[e],[fn])
+
+  滑动
+  slideDown([s],[e],[fn])
+  slideUp([s,[e],[fn]])
+  slideToggle([s],[e],[fn])
+
+  淡入淡出
+  fadeIn([s],[e],[fn])
+  fadeOut([s],[e],[fn])
+  fadeTo([[s],o,[e],[fn]])
+  fadeToggle([s,[e],[fn]])
+   */
+
+  $("button:eq(0)").click(function () {
+    $("p:eq(1)").show("fast", function () {});
+    // $("p:eq(1)").fadeIn("slow");
+    // $("p:eq(1)").fadeIn("fast", function () {
+    //   alert("Animation Done.");
+    // });
+    //
+    // $("p").fadeOut("slow");
+    // $("p").fadeOut("fast", function () {
+    //   alert("Animation Done.");
+    // });
+    //
+    // $("p:eq(0)").fadeTo("fast", 0.25);
+  });
+</script>
