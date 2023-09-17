@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style-type: none;
+      }
+      .menu {
+        width: 200px;
+        background-color: #ccc;
+      }
+      .menu ul > li {
+        background-color: chocolate;
+        line-height: 40px;
+        border-bottom: 1px solid #ccc;
+      }
+      .menu ul ol {
+        display: none;
+      }
+      .menu ul ol li {
+        background-color: burlywood;
+        border-bottom: 1px solid #736a6a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu">
+      <ul>
+        <li>
+          <div>菜单一</div>
+          <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ol>
+        </li>
+        <li>
+          <div>菜单二</div>
+          <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ol>
+        </li>
+        <li>
+          <div>菜单三</div>
+          <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+      $("ul li").click(function () {
+        $(this).children("ol").slideToggle();
+        $(this).siblings().children("ol").slideUp();
+      });
+    </script>
+  </body>
+</html>

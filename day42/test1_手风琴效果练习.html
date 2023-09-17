@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        display: flex;
+        width: 1200px;
+        height: 400px;
+
+        ul li {
+          width: 240px;
+          height: 400px;
+          overflow: hidden;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul>
+      <li>
+        <img src="./test1/1.jpg" alt="#" />
+      </li>
+      <li>
+        <img src="./test1/2.jpg" alt="#" />
+      </li>
+      <li>
+        <img src="./test1/3.jpg" alt="#" />
+      </li>
+      <li>
+        <img src="./test1/4.jpg" alt="#" />
+      </li>
+      <li>
+        <img src="./test1/5.jpg" alt="#" />
+      </li>
+    </ul>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+      $("ul li").hover(
+        function () {
+          $(this)
+            .stop()
+            .animate({
+              width: "800px",
+            })
+            .siblings()
+            .stop()
+            .animate({
+              width: "100px",
+            });
+        },
+        function () {
+          $("ul li").stop().animate({
+            width: "240px",
+          });
+        }
+      );
+    </script>
+  </body>
+</html>
