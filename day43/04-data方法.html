@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>取数据</button>
+    <button>设置数据</button>
+    <button>删除数据</button>
+    <div class="" id="" data-x="100">hello...这是一个div</div>
+</body>
+<script src="./jquery.js"></script>
+<script>
+    $("button:eq(0)").click(function () {
+        var x = $("div").data("x");
+        console.log(x);
+        var y = $("div").data("y");
+        console.log(y);
+
+    })
+    $("button:eq(1)").click(function () {
+        //设置一个数据
+        $("div").data("y", 200);
+    })
+    $("button:eq(2)").click(function () {
+        $("div").removeData("y");
+        $("div").removeData("x");
+    })
+</script>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+      }
+
+      ul > li {
+        width: 200px;
+        /* height: 40px; */
+        line-height: 40px;
+        text-align: center;
+        background-color: pink;
+      }
+
+      ol > li {
+        width: 200px;
+        height: 35px;
+        line-height: 35px;
+        background-color: yellow;
+        text-align: center;
+        border-bottom: #ccc 1px solid;
+      }
+
+      ol {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="menu">
+      <ul>
+        <!-- <li>
+                <div>一级菜单</div>
+                <ol>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                </ol>
+            </li> -->
+      </ul>
+    </div>
+  </body>
+  <script src="./jquery.js"></script>
+  <script>
+    //http://121.89.192.46:7777/me/menus
+    (function () {
+      var url = "http://121.89.192.46:7777/me/menus";
+      $.ajax({
+        url: url,
+        type: "GET",
+        data: "json",
+        success: function (res) {
+          // console.log(res);
+          var data = res.data;
+          // console.log(data);
+          // 调用一个数据渲染的方法
+          showData(data);
+        },
+        error: function (error) {
+          console.log(error);
+        },
+      });
+    })();
+
+    function showData(data) {
+      $.each(data, function (i, item) {
+        console.log(item);
+        var $uli = $("<li></li>").appendTo("ul");
+        var $div = $("<div></div>").appendTo($uli).html(item.name);
+        var $ol = $("<ol></ol>").appendTo($uli);
+        var menuList = item.menuList;
+
+        $.each(menuList, function (i, item) {
+          var $oli = $("<li></li>").appendTo($ol);
+          var $a = $("<a></a>").html(item.name).attr("href", item.url).appendTo($oli);
+        });
+        //点击事件
+        $uli.click(function () {
+          $(this).siblings().find("ol").slideUp();
+          $(this).find("ol").slideToggle();
+        });
+      });
+    }
+  </script>
+</html>

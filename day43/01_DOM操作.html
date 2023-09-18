@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            height: 40px;
+            background-color: yellow;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>添加节点子元素</button>
+    <button>添加兄弟元素</button>
+    <button>添加元素</button>
+    <ul>
+        <li>hello....li</li>
+    </ul>
+</body>
+<script src="./jquery.js"></script>
+<script>
+    /*  
+    append()
+    prepend()
+
+    appendTo()
+    prependTo()
+
+    */
+    $("button:eq(2)").click(function () {
+        $("ul").wrap("<div></div>");
+    })
+    $("button:eq(1)").click(function () {
+        // $("<input type = 'checkbox' checked />").insertAfter("ul");
+        $("ul").after("<input type = 'checkbox' checked >");
+    })
+
+
+    var i = 1;
+    $("button:eq(0)").click(function () {
+        //创建节点，添加节点，设置节点的内容或属性
+        // var $li = $("<li></li>").appendTo("ul").html("hello...这是一个新的li").addClass("active");
+        // var $li = $("<li></li>").prependTo("ul").html("hello...这是一个新的li" + i).addClass("active");
+        // i++;
+
+
+        // var $li = $("<li></li>").html("hello.....li .." + i).addClass("active");
+        // i++;
+        // $("ul").append($li);
+        // $("ul").prepend($li);
+        // console.log($li);
+
+        // var $li = $("<li class = 'active'>hello......</li>").appendTo("ul");
+    })
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+</body>
+<script src="./jquery.js"></script>
+<script>
+    /*
+    $().each(function(i){})
+    */
+    $("div").each(function (i) {
+        // console.log(i);
+        // this.innerHTML = "hello...." + i;
+        // $(this).html("hello......." + i);
+    })
+    $("img").each(function (i) {
+        // this.src = "test" + i + ".jpg"
+        // $(this).attr("src", "test" + i + ".jpg");
+    })
+
+    // var arr = ["alina", "jerry", "tom"];
+    // var arr = [{ name: "anila" }, { name: "tom" }];
+    // $.each(arr, function (i, item) {
+    //     // console.log(i);
+    //     console.log(item.name);
+    // })
+
+    var obj = {
+        name: "tom",
+        age: "2"
+    };
+    $.each(obj, function (key, value) {
+        console.log(key, value);
+    })
+
+    for (var key in obj) {
+        console.log(key + "...." + obj[key]);
+    }
+</script>
+
+</html>

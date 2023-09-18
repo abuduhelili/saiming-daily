@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>删除</button>
+    <hr>
+    <!-- <div id="box">
+        <button>删除按钮</button>
+        <p>这是一个段落</p>
+    </div> -->
+    <ul>
+        <li>hello....li...1</li>
+        <li>hello....li...2</li>
+        <li>hello....li...3</li>
+    </ul>
+    <hr>
+    <ol>
+
+    </ol>
+</body>
+<script src="./jquery.js"></script>
+<script>
+    $("ul li").click(function () {
+        console.log($(this).html());
+    })
+    $("button:eq(0)").click(function () {
+        // $("#box").empty();
+        // $("#box").remove();
+        // $("#box").detach();
+        $("ul li:first").remove().appendTo("ol");
+        // $("ul li:last").detach().appendTo("ol");
+    })
+</script>
+
+</html>

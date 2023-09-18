@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="b01">获取</button>
+    <div></div>
+  </body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    var url = "http://121.89.192.46:7777/me/menus";
+    (function () {
+      $.ajax({
+        url: url,
+        dataType: "json",
+        success: function (data) {
+          console.log(data);
+          $("div").html(JSON.stringify(data));
+        },
+      });
+    })();
+  </script>
+</html>
