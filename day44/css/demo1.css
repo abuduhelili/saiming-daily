@@ -1,0 +1,12 @@
+div {
+  color: red;
+  border: 3px solid #ccff;
+  width: 200px;
+  height: 200px;
+}
+
+p {
+  border: 3px solid green;
+  width: 100px;
+  background-color: red;
+}

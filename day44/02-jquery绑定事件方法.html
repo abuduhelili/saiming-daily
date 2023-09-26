@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>绑定</button>
+    <button>解除</button>
+  </body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    // on   绑定
+    $("button:eq(0)").on("click", fn);
+    function fn() {
+      console.log("hello......on");
+    }
+    // off  解除
+    $("button:eq(1)").on("click", function () {
+      $("button:eq(0)").off("click", fn);
+    });
+
+    // // one  只绑定一次
+    // $("button:eq(0)").one("click", function () {
+    //   console.log("hello....one");
+    // });
+  </script>
+</html>

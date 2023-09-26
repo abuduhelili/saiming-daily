@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td {
+        width: 150px;
+        border: 1px solid blue;
+      }
+
+      table {
+        border: 1px solid blue;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table>
+      <tr>
+        <td><input type="checkbox" />全选</td>
+        <td>书名</td>
+        <td>数量</td>
+        <td>单价</td>
+        <td>操作</td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox" />
+        </td>
+        <td>html......</td>
+        <td>
+          <button>-</button>
+          <span>1</span>
+          <button>+</button>
+        </td>
+        <td>69</td>
+        <td>
+          <button>删除</button>
+        </td>
+      </tr>
+    </table>
+    <div>选中的商品有<span>?</span>件</div>
+  </body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    var arr = [
+      {
+        bookName: "html从入门到精通",
+        n: 1,
+        price: 59,
+      },
+      {
+        bookName: "css从入门到精通",
+        n: 2,
+        price: 69,
+      },
+      {
+        bookName: "js从入门到精通",
+        n: 3,
+        price: 79,
+      },
+    ];
+    // <tr>
+    //         <td>
+    //             <input type="checkbox">
+    //         </td>
+    //         <td>html......</td>
+    //         <td>
+    //             <button>-</button>
+    //             <span>1</span>
+    //             <button>+</button>
+    //         </td>
+    //         <td>69</td>
+    //         <td>
+    //             <button>删除</button>
+    //         </td>
+    //     </tr>
+    $.each(arr, function (i, item) {
+      var $tr = $("<tr></tr>").appendTo("tbody");
+      var $td1 = $("<td></td>").appendTo($tr);
+      var $checkbox = $('<input type="checkbox">').appendTo($td1);
+
+      var $td2 = $("<td></td>").appendTo($tr).html(item.bookName);
+
+      var $td3 = $("<td></td>").appendTo($tr);
+      var $subBtn = $("<button>-</button>").appendTo($td3);
+      var $span = $("<span></span>").html(item.n).appendTo($td3);
+      var $addBtn = $("<button>+</button>").appendTo($td3);
+
+      var $td4 = $("<td></td>").appendTo($tr).html(item.price);
+
+      var $td5 = $("<td></td>").appendTo($tr);
+      var $delBtn = $("<button>删除</button>").appendTo($td5);
+
+      //删除
+      $delBtn.click(function () {
+        $(this).parents("tr").remove();
+      });
+
+      //加
+      $addBtn.click(function () {
+        // 设置减按钮可用
+        $(this).prevAll("button").prop("disabled", false);
+
+        var x = Number($(this).prev().html());
+        x++;
+        $(this).prev().html(x);
+      });
+      //减
+      $subBtn.click(function () {
+        var x = Number($(this).next().html());
+        x--;
+        if (x <= 1) {
+          x = 1;
+          $(this).prop("disabled", true);
+        }
+        $(this).next().html(x);
+        //按钮禁用
+      });
+    });
+  </script>
+</html>

@@ -1,0 +1,18 @@
+$base-color: red;
+$border-color: green;
+$w-x: 100px;
+$w-xx: 200px;
+
+div {
+  $border-color: #ccff;
+  color: $base-color;
+  border: 3px solid $border-color;
+  width: $w-xx;
+  height: $w-xx;
+}
+
+p {
+  border: 3px solid $border-color;
+  width: $w-x;
+  background-color: $base-color;
+}
