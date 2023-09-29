@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.textBox {
+  width: 300px;
+  height: auto;
+  margin-left: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 5px solid #ff0000;
+
+  textarea {
+    width: 100%;
+    height: auto;
+    resize: none; /* 禁用手动调整大小 */
+  }
+
+  .addBtn {
+    width: 100%;
+    min-width: 100px;
+  }
+}
+ul {
+  width: 400px;
+  list-style: none;
+  margin-left: 20px;
+
+  //   li
+  li {
+    line-height: 30px;
+    margin-top: 10px;
+    padding: 5px 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .comment {
+      display: flex;
+      justify-content: space-between;
+
+      .ri {
+        // border: 1px solid #ff0000;
+        overflow: hidden;
+        // 禁止换行
+        white-space: nowrap;
+        // 溢出部分隐藏
+        text-overflow: ellipsis;
+        width: 85%;
+      }
+    }
+    .date {
+      font-size: 12px;
+    }
+  }
+}
