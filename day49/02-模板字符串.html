@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .i {
+      text-decoration: none;
+      color: #000;
+    }
+  </style>
+  <body></body>
+
+  <div id="box"></div>
+  <p style="border-bottom: 2px solid black"></p>
+  <div id="box2"></div>
+</html>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+  var data = [
+    {
+      href: "www.baidu.com",
+      title: "百度一下",
+    },
+    {
+      href: "www.jd.com",
+      title: "京东商城",
+    },
+    {
+      href: "www.taobao.com",
+      title: "淘宝网",
+    },
+    {
+      href: "www.qq.com",
+      title: "腾讯网",
+    },
+  ];
+  // 原生
+  var box = document.getElementById("box");
+  for (let i = 0; i < data.length; i++) {
+    box.innerHTML += `
+    <div>
+      <a class = 'i' href=${data[i].href}>${data[i].title}</a>
+    </div>
+    `;
+  }
+
+  //
+  // jquery实现
+  var str = "";
+  $.each(data, function (i, item) {
+    str += `
+    <div>
+      <a class = 'i' href=${item.href}> ${item.title} </a>
+    </div>
+    `;
+  });
+  console.log(str);
+  $("#box2").html(str);
+</script>

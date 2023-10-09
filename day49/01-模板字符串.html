@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  var str1 = `
+  hello 
+  world`;
+  console.log(str1);
+
+  var username1 = "henry";
+  var username2 = "swift";
+  console.log(`hello ${username1}
+  -----------------
+  hello ${username2}`);
+
+  var obj1 = {
+    name: "henry",
+    age: 20,
+    comefrom: "Beijing",
+  };
+
+  var div = document.createElement("div");
+  document.body.appendChild(div);
+  div.innerHTML = `
+  <p>hello <strong> ${obj1.name} </strong></p>
+  <p>${obj1.name} is ${obj1.age} years old.</p>
+  <p>${obj1.name} is from ${obj1.comefrom}.</p>
+  `;
+</script>

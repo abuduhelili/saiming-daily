@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  /*
+1-一个判断对象是否是数组的方法
+// Array.isArray()
+2、eval 是做什么的？
+// 执行一段字符串，可以用来执行一个表达式
+3、写出3个使用this的典型应用
+    1-元素的点击事件
+    // li.onclick = function(){
+    // this.innerHTML = "Hello";
+    // }
+    2-构造函数中
+    // function Person(name,age){
+    // this.name = name;
+    // this.age = age;
+    // }
+    3-利用Math.max()求数组的最大值
+        var arr = [11,22,33,555,66];
+        var x = Math.max.apply(this,arr);
+        console.log(x);
+
+4、分析程序的运行结果：
+var count=100;
+var User = {
+  count: 1,
+  getCount: function () {
+    return this.count;
+  }     
+};    
+console.log(User.getCount());  / 1 
+var func = User.getCount;
+console.log(func());    // 100
+
+5、ajax请求时，如何解析json数据  JSON.parse() JSON.stringify()
+// 1-JSON.parse() 解析json字符串
+// 2-JSON.stringify() 把js对象转换为json字符串
+
+6、分析程序运行结果
+function Person(firstName, lastName) {
+ this.firstName = firstName;
+ this.lastName = lastName;
+}
+
+var  lydia = new Person("Lydia", "Hallie");
+var sarah = Person("Sarah", "Smith");
+console.log(lydia);  // Object { firstName: "Lydia", lastName: "Hallie" }
+console.log(sarah);  // Undefined
+
+7、分析程序的运行结果
+var a = new Object();
+a.value = 1;
+b = a;
+b.value = 2;
+console.log(a.value);  // 2 
+console.log(b.value);  // 2
+
+8、分析程序的运行结果
+function A(){
+}
+function B(a){
+  this.a = a;
+}
+function C(a){
+  if(a){
+    this.a = a;
+  }
+}
+A.prototype.a = 1;
+B.prototype.a = 1;
+C.prototype.a = 1;
+  
+console.log(new A().a); // 1
+console.log(new B().a); // Undefined
+console.log(new C(2).a); // 2
+console.log(new C().a);  // 1
+
+9、分析程序的运行结果：
+var sum = eval("10*10+5");
+console.log(sum);  // 105
+
+10、
+给 String 对象添加一个方法，后将 string 的每个字符间
+加空格返回，例如：
+"helloworld".addSpace() // -> h e l l o w o r l d
+String.prototype.addSpace = function () {
+  return this.split("").join(" ");
+}
+
+11
+利用程序完成双色球第22113期的号码。
+随机生成6个1-33之间的整数，作为红色号码，放到一个数组中，
+要求这6个数据不能重复，第1个号码排除5 ,第2个数据排除32 。
+随机生成1个1-16之间的整数，作为蓝色号码。要求蓝色号码排除9。
+function getRed(){
+  var arr = [];
+  var i = 0;
+  while(i<6){
+    var num = Math.floor(Math.random()*33+1);
+    if(num != 5 && num != 32){
+      arr.push(num);
+      i++;
+    }
+  }
+return arr;
+}
+function getBlue(){
+  var arr = [];
+  var i = 0;
+  while(i<1){
+    var num = Math.floor(Math.random()*16+1);
+    if(num != 9){
+      arr.push(num);
+      i++;
+    }
+  }
+return arr; 
+}
+*/
+</script>
