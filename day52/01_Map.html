@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 定义
+  let myMap = new Map();
+
+  //
+  let arr = [1, 2, 3, 4];
+  let obj = { a: 'ok', b: 'okk' };
+  myMap.set('1', 'hello');
+  myMap.set('2', 'world');
+  myMap.set('3', '!');
+  myMap.set(arr, '这是一个数组'); // 不能直接用[1, 2, 3, 4]
+  myMap.set(obj, '这是一个对象'); // 不能直接用{ a: 'ok', b: 'okk' }
+
+  // console.log(myMap.get(obj));
+
+  // 遍历
+  console.log('遍历结果');
+  myMap.forEach(function (value, key) {
+    console.log(`${key}---------${value}`);
+  });
+
+  console.log(myMap);
+</script>
