@@ -19,27 +19,48 @@ class Person {
     this.name = name;
     this.year = year;
   }
-  getName() {
-    return this.name;
+  sayName() {
+    console.log(this.name);
   }
   setName(name) {
     this.name = name;
   }
-  getYear() {
-    return this.year;
+  sayYear() {
+    console.log(this.year);
   }
   setYear(year) {
     this.year = year;
   }
-  age() {
+  sayAge() {
     let data = new Date();
-    return data.getFullYear() - this.year;
+    console.log(data.getFullYear() - this.year);
   }
 }
 
 // 实例化
 let my = new Person('Harry', 2001);
-// console.log(my.getName(), my.getYear(), my.age());
-// my.setName('Harry Swift');
-// my.setYear(2002);
-// console.log(my.getName(), my.getYear(), my.age());
+my.sayName(), my.sayYear(), my.sayAge();
+my.setName('Harry Swift');
+my.setYear(2002);
+my.sayName(), my.sayYear(), my.sayAge();
+
+// 继承
+class Student extends Person {
+  constructor(name, year, school) {
+    super(name, year);
+    this.school = school;
+  }
+  sayName() {
+    console.log('-------------------');
+    super.sayName();
+  }
+  saySchool() {
+    console.log(this.school);
+  }
+}
+
+let myStudent = new Student('Harry Swift', 2002, 'Harvard');
+myStudent.sayName();
+myStudent.sayYear();
+myStudent.saySchool();
+myStudent.sayAge();
