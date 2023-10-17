@@ -1,0 +1,13 @@
+{
+  "student": [
+    { "name": "aaa", "age": "12" },
+    { "name": "bbb", "age": "13" },
+    { "name": "ccc", "age": "14" },
+    { "name": "ddd", "age": "12" }
+  ],
+  "teacher": [
+    { "name": "AAA", "age": "25" },
+    { "name": "BBB", "age": "26" },
+    { "name": "CCC", "age": "27" }
+  ]
+}
