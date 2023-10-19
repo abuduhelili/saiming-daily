@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="app1">
+      <div>
+        <input type="text" v-model.lazy="message" placeholder="请输入文字" />
+        <h2>{{message}}</h2>
+      </div>
+      <div>
+        <button @click="count--">-</button>
+        <button @click="count++">+</button>
+        <button @click="count=0">重置</button>
+        <h3>{{count}}</h3>
+      </div>
+    </div>
+
+    <!-- 引入Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const App1 = {
+        data() {
+          return {
+            message: 'hello',
+            count: 0,
+          };
+        },
+      };
+      Vue.createApp(App1).mount('.app1');
+    </script>
+  </body>
+</html>
