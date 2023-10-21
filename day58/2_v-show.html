@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="app1">
+      <button @click="flag = !flag">{{flag ? '已显示':'已隐藏'}}</button>
+      <h3 v-show="flag">{{message}}</h3>
+      <hr />
+      <button @click="x++">加X</button>
+      <span style="margin-left: 1rem">{{x}} (x>10,显示文字)</span>
+      <h3 v-show="x>10">okkkkk</h3>
+    </div>
+    <script src="/vue.global.js"></script>
+    <script>
+      const app1 = Vue.createApp({
+        data() {
+          return {
+            message: 'hello Vue',
+            flag: true,
+            x: 5,
+          };
+        },
+      }).mount('.app1');
+    </script>
+  </body>
+</html>

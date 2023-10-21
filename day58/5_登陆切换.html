@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="root">
+      <button @click="toggleLoginType()">
+        {{loginType == 'number' ? '切换到邮箱登录':'切换到手机登录'}}
+      </button>
+      <div class="numberLogin" v-show="loginType=='number'">
+        <label for="num">号码</label>
+        <input type="number" name="num" /><br />
+        <label for="pswd">密码</label>
+        <input type="password" name="pswd" />
+      </div>
+      <div class="emailLogin" v-show="loginType=='email'">
+        <label for="num">邮箱</label>
+        <input type="number" name="num" /><br />
+        <label for="pswd">密码</label>
+        <input type="password" name="pswd" />
+      </div>
+    </div>
+    <script src="/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            loginType: 'number',
+          };
+        },
+        methods: {
+          toggleLoginType() {
+            if (this.loginType == 'number') {
+              this.loginType = 'email';
+              console.log(this.loginType);
+            } else if (this.loginType == 'email') {
+              this.loginType = 'number';
+              console.log(this.loginType);
+            }
+          },
+        },
+      }).mount('.root');
+    </script>
+  </body>
+</html>

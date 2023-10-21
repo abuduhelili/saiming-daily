@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="app">
+      <label for="score">分数：</label>
+      <input type="number" name="score" id="" v-model.lazy="score" />
+      <div>
+        <h4 v-if="score>=90">{{score}} A</h4>
+        <h4 v-else-if="score>=80">{{score}} B</h4>
+        <h4 v-else-if="score>=70">{{score}} C</h4>
+        <h4 v-else-if="score>=60">{{score}} D</h4>
+        <h4 v-else-if="score<60">{{score}} F 不合格</h4>
+      </div>
+    </div>
+    <script src="/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            score: 100,
+          };
+        },
+      }).mount('.app');
+    </script>
+  </body>
+</html>

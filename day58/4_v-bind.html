@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="root">
+      <div>
+        <a v-bind:href="obj.href">{{obj.title}}</a><br />
+        <!-- 语法糖 -->
+        <a :href="obj2.href">{{obj2.title}}</a>
+      </div>
+      <img :src="src" alt="" />
+    </div>
+    <script src="./vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            obj: {
+              href: 'https://www.baidu.com',
+              title: '百度一下',
+            },
+            obj2: {
+              href: 'https://cn.bing.com/',
+              title: '必应',
+            },
+            src: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.1T6Gn2SzH_v-KQFhE12CyAHaE7?w=303&h=201&c=7&r=0&o=5&dpr=1.5&pid=1.7',
+          };
+        },
+      }).mount('.root');
+    </script>
+  </body>
+</html>
