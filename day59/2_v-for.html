@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div></div>
+      <hr />
+      <div v-for="site in sites" :key="site.id">
+        <a :href="site.href">{{site.title}}</a>
+      </div>
+      <hr />
+      <div>
+        <table style="width: 400px">
+          <tbody>
+            <tr>
+              <td>全选</td>
+              <td>姓名</td>
+              <td>年龄</td>
+            </tr>
+            <tr v-for="s in students">
+              <td><input type="checkbox" name="" id="" :checked="s.isChecked" /></td>
+              <td>{{s.name}}</td>
+              <td>{{s.age}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 引入vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            sites: [
+              { id: 101, href: 'https://baidu.com', title: 'baidu' },
+              { id: 102, href: 'https://163.com', title: '网易' },
+            ],
+            students: [
+              { id: 1001, isChecked: true, name: 'aaa', age: 20 },
+              { id: 1002, isChecked: false, name: 'bbb', age: 25 },
+              { id: 1003, isChecked: true, name: 'ccc', age: 24 },
+            ],
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
