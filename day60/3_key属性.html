@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <input type="text" v-model="bookID" /><br />
+        <input type="text" v-model="bookName" /><br />
+        <button @click="addBook">添加</button>
+      </div>
+      <ul>
+        <li v-for="book in books" :key="book.id">
+          <input type="checkbox" />
+          <span>{{book.name}}</span>
+        </li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            bookID: '',
+            bookName: '',
+            books: [
+              {
+                id: '001',
+                name: 'aaaaaaaa',
+              },
+              {
+                id: '002',
+                name: 'bbbbbbb',
+              },
+              {
+                id: '003',
+                name: 'ccccccc',
+              },
+              {
+                id: '004',
+                name: 'dddddd',
+              },
+              {
+                id: '005',
+                name: 'eeee',
+              },
+            ],
+          };
+        },
+        methods: {
+          addBook() {
+            this.books.unshift({
+              id: this.bookID,
+              name: this.bookName,
+            });
+            this.bookID = '';
+            this.bookName = '';
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

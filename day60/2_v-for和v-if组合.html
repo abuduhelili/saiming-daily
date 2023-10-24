@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <ol>
+        <li v-for="item in sites" :key="item.id">
+          <a :href="item.href">{{item.title}}</a>
+        </li>
+      </ol>
+      <hr />
+      <ul>
+        <h3>未完成</h3>
+        <template v-for="plan in plans">
+          <li v-if="plan.isFinish" :key="plan.id">{{plan.content}}</li>
+        </template>
+      </ul>
+      <ul>
+        <h3>完成</h3>
+        <template v-for="plan in plans">
+          <li v-if="!plan.isFinish" :key="plan.id">{{plan.content}}</li>
+        </template>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            sites: [
+              {
+                id: '01',
+                href: 'https://www.baidu.com',
+                title: '百度一下',
+              },
+              { id: '02', href: 'https://www.163.com', title: '网易' },
+            ],
+            plans: [
+              {
+                id: '001',
+                content: 'aaaaaaaaaaaaaa',
+                isFinish: false,
+              },
+              {
+                id: '002',
+                content: 'bbbbbbbbbbbbbbb',
+                isFinish: false,
+              },
+              {
+                id: '003',
+                content: 'cccccccccccccccc',
+                isFinish: true,
+              },
+              {
+                id: '004',
+                content: 'dddddddddddddddd',
+                isFinish: true,
+              },
+            ],
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
