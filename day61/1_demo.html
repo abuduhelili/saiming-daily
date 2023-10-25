@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="app1">
+      <ul>
+        <template v-for="book in books" :key="book.id">
+          <li v-if="book.id <=3">{{book.name}}<br />({{book.id}})</li>
+        </template>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            bookID: '',
+            bookName: '',
+            books: [
+              {
+                id: '001',
+                name: 'aaaaaaaa',
+              },
+              {
+                id: '002',
+                name: 'bbbbbbb',
+              },
+              {
+                id: '003',
+                name: 'ccccccc',
+              },
+              {
+                id: '004',
+                name: 'dddddd',
+              },
+              {
+                id: '005',
+                name: 'eeee',
+              },
+            ],
+          };
+        },
+        computed: {
+          a() {
+            return xxx;
+          },
+        },
+        methods: {},
+      }).mount('.app1');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        background: #869b7e;
+        width: 200px;
+        height: 50px;
+        margin-top: 10px;
+      }
+      a {
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="box" @click="fn">
+        <button @click="fn1">==1</button>
+      </div>
+      <div class="box" @click="fn">
+        <button @click.stop="fn2">==2</button>
+      </div>
+      <div class="box" @click="fn">
+        <a @click.prevent="fn3" href="#">==3</a>
+        <!-- 原生实现：<a @click="fn3($event)" href="#">==3</a>
+        再在js中实现原生阻止默认事件；
+       -->
+      </div>
+      <div class="box" @click="fn">
+        <button @click.once="fn4">==4</button>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      /*
+      @click.stop:     阻止事件冒泡
+      @click.prevent:   阻止默认事件
+      @click.once:     只进行一次
+      @click.capture:   事件捕获：被内部元素处理前，先被外部处理
+      
+      
+      注：
+      若需要用原生js的event事件，则需要传入参数；
+      格式为：@click="fn($event)"
+      */
+      const app = Vue.createApp({
+        data() {
+          return {};
+        },
+        methods: {
+          fn() {
+            console.log('点击了box');
+          },
+          fn1() {
+            console.log('点击了1');
+          },
+          fn2() {
+            console.log('点击了2');
+          },
+          fn3() {
+            console.log('点击了3');
+          },
+          fn4() {
+            console.log('点击了4');
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

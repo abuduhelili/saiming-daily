@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <hr />
+      <div>{{message}}</div>
+      <div v-text="message"></div>
+      <hr />
+      <div v-html="message"></div>
+      <hr />
+      <div v-pre>{{message}}</div>
+      <hr />
+      <div v-once>{{message}}</div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      /*
+      v-text:  等价于{{ }}表达式；不解析html;
+      v-html:  可以解析html;
+      v-pre:   跳过元素的渲染过程；
+      v-once:  只渲染一次；
+      v-cloak: 隐藏未编译元素；
+       */
+      const app = Vue.createApp({
+        data() {
+          return {
+            message: '<h1>hello-----</h1>',
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

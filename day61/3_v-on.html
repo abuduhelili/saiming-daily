@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <span>{{x}}</span><br />
+      <button @click="add">+1</button>
+      <button @click="addN(10)">+10</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      /*
+      v-on:  监听DOM事件，并在触发的时候运行一些js语句；
+      语法糖：如：@click
+      */
+
+      const app = Vue.createApp({
+        data() {
+          return {
+            x: 0,
+          };
+        },
+        methods: {
+          add() {
+            this.x++;
+          },
+          addN(n) {
+            this.x += n;
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
