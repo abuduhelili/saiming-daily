@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      /*
+      computed属性：
+
+      与方法区别：
+      {{ }}中计算属性不用写();
+      计算属性会缓存，多次调用会重复使用，方法则会执行多次；
+
+      */
+      const App = Vue.createApp({
+        data() {
+          return {
+            message: 'hello...vue',
+          };
+        },
+        // 计算属性
+        computed: {
+          reverseMessage() {
+            return (
+              this.message.split('...').reverse().join('...') +
+              '————' +
+              Math.floor(Math.random() * 10)
+            );
+          },
+        },
+        // 方法
+        methods: {
+          reverseMethods() {
+            return (
+              this.message.split('...').reverse().join('...') +
+              '————' +
+              Math.floor(Math.random() * 10)
+            );
+          },
+        },
+        template: `<h3>{{message}}</h3>
+        <hr>
+        <h3>{{reverseMessage}}</h3>
+        <h3>{{reverseMessage}}</h3>
+        <h3>{{reverseMessage}}</h3>
+        <hr>
+        <h3>{{reverseMethods()}}</h3>
+        <h3>{{reverseMethods()}}</h3>
+        <h3>{{reverseMethods()}}</h3>`,
+      }).mount('#app');
+    </script>
+  </body>
+</html>

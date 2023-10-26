@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        border: 1px solid skyblue;
+        width: 250px;
+        margin-left: 40px;
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+      }
+      ul li a {
+        text-decoration: none;
+        color: blue;
+      }
+      ul ol {
+        /* display: none; */
+      }
+      ul ol li {
+        list-style-type: none;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li
+          v-for="item in menus"
+          :key="item.id"
+          @mouseover="item.isShow = true;"
+          @mouseout="item.isShow = false;">
+          <a :href="item.src">{{item.name}}</a>
+          <ol v-if="item.isShow">
+            <li v-for="subitem in item.subMenus" :key="subitem.id">
+              <a :href="subitem.src">{{subitem.name}}</a>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const App = Vue.createApp({
+        data() {
+          return {
+            menus: [
+              {
+                id: '01',
+                name: '我的淘宝',
+                src: '#',
+                isShow: false,
+                subMenus: [
+                  {
+                    id: '0101',
+                    name: '已买入的宝贝',
+                    src: '#',
+                  },
+                  {
+                    id: '0102',
+                    name: '已卖出的宝贝',
+                    src: '#',
+                  },
+                ],
+              },
+              {
+                id: '02',
+                name: '我的收藏夹',
+                src: '#',
+                isShow: false,
+                subMenus: [
+                  {
+                    id: '0201',
+                    name: '收藏的店铺',
+                    src: '#',
+                  },
+                  {
+                    id: '0201',
+                    name: '收藏的宝贝',
+                    src: '#',
+                  },
+                ],
+              },
+            ],
+          };
+        },
+        computed: {},
+        methods() {},
+      }).mount('#app');
+    </script>
+  </body>
+</html>

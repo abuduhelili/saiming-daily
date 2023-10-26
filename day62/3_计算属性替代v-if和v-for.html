@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>已完成</h3>
+      <ol v-for="work in finish" :key="work.id">
+        {{work.id}}--{{work.name}}
+      </ol>
+      <h3>未完成</h3>
+      <ol v-for="work in unFinish" :key="work.id">
+        {{work.id}}--{{work.name}}
+      </ol>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const App = Vue.createApp({
+        data() {
+          return {
+            works: [
+              {
+                id: '001',
+                name: 'aaaaaaaaaaa',
+                isFinish: true,
+              },
+              {
+                id: '002',
+                name: 'bbbbbbbbbbbb',
+                isFinish: true,
+              },
+              {
+                id: '003',
+                name: 'cccccccccccc',
+                isFinish: true,
+              },
+              {
+                id: '004',
+                name: 'dddddddddddd',
+                isFinish: false,
+              },
+              {
+                id: '005',
+                name: 'eeeeeeeeee',
+                isFinish: false,
+              },
+            ],
+          };
+        },
+        computed: {
+          /*
+          
+          可通过计算属性来过滤数据元素，来替代v-if;
+          
+          */
+          finish() {
+            return this.works.filter(item => {
+              return item.isFinish;
+            });
+          },
+
+          unFinish() {
+            return this.works.filter(item => {
+              return !item.isFinish;
+            });
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
