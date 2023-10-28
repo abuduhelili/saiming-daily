@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="person.name" /><br />
+      <input type="text" v-model="person.age" /><br />
+      <input type="text" v-model="person.year" /><br />
+      <p>
+        <label for="">name:</label> <b><span>{{info1}}</span></b>
+      </p>
+      <p>
+        <label for="">age:</label> <b><span>{{info2}}</span></b>
+      </p>
+      <p>
+        <label for="">year:</label> <b><span>{{info3}}</span></b>
+      </p>
+    </div>
+    <script>
+      const App = {
+        data() {
+          return {
+            person: {
+              name: 'harry',
+              age: 22,
+              year: '2001',
+            },
+            info1: 'xxx',
+            info2: 'xxx',
+            info3: 'xxx',
+          };
+        },
+        watch: {
+          // 侦听整个对象
+          person: {
+            handler(newVal, oldVal) {
+              this.info1 = newVal.name;
+              this.info2 = newVal.age;
+            },
+            deep: true, // 深层侦听
+            immediate: true, // 立即执行回调
+          },
+
+          // 侦听对象某一个属性
+          'person.year'(newVal, oldVal) {
+            this.info3 = newVal;
+          },
+        },
+      };
+      Vue.createApp(App).mount('#app');
+    </script>
+  </body>
+</html>

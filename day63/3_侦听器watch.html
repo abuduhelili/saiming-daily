@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="message" />
+      <hr />
+      <input type="text" v-model="x" />
+      <hr />
+      <h3>{{info1}}</h3>
+      <h3>message的值为:{{info2}}</h3>
+    </div>
+    <script>
+      const App = {
+        data() {
+          return {
+            message: 'hello',
+            x: 0,
+            info1: '---',
+            info2: '---',
+          };
+        },
+        computed: {},
+        /*
+        侦听：两种方法：
+        1）watch中直接写对应函数；
+        2）watch中写函数名，在methods中写对应的函数；
+
+        */
+        watch: {
+          // 监听x
+          x(newValue, oldValue) {
+            if (newValue > 10) {
+              this.info1 = '大于10';
+            }
+            if (newValue < 10) {
+              this.info1 = '小于10';
+            }
+          },
+          // 监听message
+          message: 'checkMessage',
+        },
+
+        methods: {
+          // 监听message
+          checkMessage(newValue, oldValue) {
+            this.info2 = newValue;
+          },
+        },
+      };
+      Vue.createApp(App).mount('#app');
+    </script>
+  </body>
+</html>

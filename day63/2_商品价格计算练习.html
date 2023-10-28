@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        text-align: center;
+        border-collapse: collapse;
+      }
+      table tr {
+        line-height: 40px;
+      }
+      table td {
+        width: 100px;
+        border: 1px solid black;
+      }
+      table button {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        border-radius: 5px;
+        height: 80%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <table>
+        <tr style="font-weight: 600; font-size: 20px">
+          <td>名称</td>
+          <td>单价</td>
+          <td>数量</td>
+          <td>总价</td>
+          <td>操作</td>
+        </tr>
+        <tr v-for="(book,index) in books" :key="book.id">
+          <td>{{book.name}}</td>
+          <td>{{book.price}}</td>
+          <td
+            style="
+              display: flex;
+              padding: 0 10px;
+              justify-content: space-between;
+              align-items: center;
+            ">
+            <button @click="sub(index)" :disabled="book.num<=0">-</button>
+            <span>{{book.num}}</span>
+            <button @click="add(index)">+</button>
+          </td>
+          <td>{{book.num*book.price}}</td>
+          <td>
+            <button @click="del(index)">删除</button>
+          </td>
+        </tr>
+      </table>
+      <hr />
+      <h4>总价:<span>{{totalPrice}}</span></h4>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const App = {
+        data() {
+          return {
+            books: [
+              {
+                id: '01',
+                name: 'HTML',
+                price: 5,
+                num: 1,
+              },
+              {
+                id: '02',
+                name: 'CSS',
+                price: 10,
+                num: 1,
+              },
+              {
+                id: '03',
+                name: 'JavaScrip',
+                price: 50,
+                num: 1,
+              },
+              {
+                id: '04',
+                name: 'Vue',
+                price: 100,
+                num: 1,
+              },
+            ],
+          };
+        },
+        computed: {
+          totalPrice() {
+            let price = 0;
+            for (let i = 0; i < this.books.length; i++) {
+              price += this.books[i].num * this.books[i].price;
+            }
+            return price;
+          },
+        },
+        methods: {
+          sub(index) {
+            this.books[index].num--;
+          },
+          add(index) {
+            this.books[index].num++;
+          },
+          del(index) {
+            this.books.splice(index, 1);
+          },
+        },
+      };
+      Vue.createApp(App).mount('#app');
+    </script>
+  </body>
+</html>
