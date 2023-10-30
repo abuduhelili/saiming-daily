@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        width: 300px;
+      }
+      .even {
+        background-color: pink;
+      }
+      .odd {
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <table>
+        <tr>
+          <td>id</td>
+          <td>name</td>
+          <td>age</td>
+        </tr>
+        <template v-for="(student,index) in students">
+          <tr :class="trStyle(index)">
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+          </tr>
+        </template>
+      </table>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const App = Vue.createApp({
+        data() {
+          return {
+            // isOdd: true,
+            // isEven: true,
+            students: [
+              { id: '001', name: 'aaa', age: 20 },
+              { id: '002', name: 'bbb', age: 20 },
+              { id: '003', name: 'ccc', age: 20 },
+            ],
+          };
+        },
+        methods: {
+          trStyle(index) {
+            return {
+              odd: index % 2 == 0,
+              even: index % 2 !== 0,
+            };
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

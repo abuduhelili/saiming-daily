@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <select name="web" id="">
+        <option v-for="(option,index) in options" value="option.value" :key="index">
+          {{option.text}}
+        </option>
+      </select>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const App = {
+        data() {
+          return {
+            options: [
+              { text: '百度', value: 'baidu.com' },
+              { text: '谷歌', value: 'google.com' },
+              { text: '网易', value: '163.com' },
+            ],
+          };
+        },
+      };
+      Vue.createApp(App).mount('#app');
+    </script>
+  </body>
+</html>

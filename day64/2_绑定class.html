@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .static {
+        background-color: bisque;
+        color: black;
+        margin: 10px 5px;
+      }
+      .active {
+        background-color: yellow;
+        color: red;
+      }
+      .border {
+        border: 2px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 第一种：class传入对象 -->
+      <div class="static" :class="{active:isActive}">1111111111111111111</div>
+      <hr />
+      <!-- 第二种：class直接绑定对象-->
+      <div class="static" :class="classObj1">1111111111111111111</div>
+      <hr />
+      <!-- 第三种：绑定计算属性 -->
+      <input type="number" v-model="x" />
+      <div class="static" :class="classObj2">输入的数字为：{{x}}</div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const App = Vue.createApp({
+        data() {
+          return {
+            x: 1,
+            isActive: true,
+            classObj1: {
+              active: true,
+              border: true,
+            },
+          };
+        },
+        computed: {
+          classObj2() {
+            return {
+              active: this.x % 2 == 0,
+              border: this.x > 100,
+            };
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
