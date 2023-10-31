@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <form action="">
+        <!-- 文本框 -->
+        <label for="username">用户名：</label>
+        <input type="text" v-model="username" /><br />
+        <label for="pswd">密码：</label>
+        <input type="password" v-model="pswd" />
+        <hr />
+
+        <hr />
+        <!-- 多选 -->
+        <input type="checkbox" name="hobby" id="" />1 <input type="checkbox" name="hobby" id="" />2
+        <input type="checkbox" name="hobby" id="" />3 <input type="checkbox" name="hobby" id="" />4
+        <p>{{hobby}}</p>
+        <hr />
+        <!-- 单选 -->
+        <input type="radio" name="gender" value="man" v-model="gender" />男
+        <input type="radio" name="gender" value="woman" v-model="gender" />女
+        <hr />
+        <!-- 下拉列表 -->
+        <label for="">你的选择是：{{education}}</label><br />
+        <select v-model="education">
+          <option value="" disabled>请选择学历：</option>
+          <option value="xiao">小学</option>
+          <option value="zhong">中学</option>
+          <option value="da">大学</option>
+        </select>
+      </form>
+      <div>
+        <p>{{username}}</p>
+        <p>{{pswd}}</p>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            username: '',
+            pswd: '',
+            isAgree: true,
+            hobby: [],
+            gender: 'man',
+            education: 'da',
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
