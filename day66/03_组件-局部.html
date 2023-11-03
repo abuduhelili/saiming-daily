@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button-counter></button-counter><br />
+      <button-counter></button-counter>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      // 定义一个局部组件：
+      const MyComponent = {
+        data() {
+          return {
+            count: 1,
+          };
+        },
+        template: `
+        <div>
+        <button @click='addCount'>+</button>
+        <span>{{this.count}}</span>
+        <button @click='subCount'>-</button>
+        </div>
+        `,
+        methods: {
+          addCount() {
+            this.count++;
+          },
+          subCount() {
+            this.count--;
+          },
+        },
+      };
+      // 根组件
+      const App = {
+        data() {
+          return {};
+        },
+        // 注册组件
+        components: {
+          ButtonCounter: MyComponent,
+        },
+      };
+      // 创建实例
+      const app = Vue.createApp(App);
+      // 挂载
+      app.mount('#app');
+    </script>
+  </body>
+</html>

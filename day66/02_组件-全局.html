@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button-counter></button-counter><br />
+      <button-counter></button-counter><br />
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      /*
+      全局定义组件
+      局部定义组件
+      */
+      //
+      // 根组件
+      const App = {};
+      const app = Vue.createApp(App);
+      // 定义一个全局组件
+      app.component('ButtonCounter', {
+        data() {
+          return {
+            count: 1,
+          };
+        },
+        template: `
+        <div>
+        <button @click='addCount'>+</button>
+        <span>{{this.count}}</span>
+        <button @click='subCount'>-</button>
+        </div>
+        `,
+        methods: {
+          addCount() {
+            this.count++;
+          },
+          subCount() {
+            this.count--;
+          },
+        },
+      });
+      // 挂载
+      app.mount('#app');
+    </script>
+  </body>
+</html>

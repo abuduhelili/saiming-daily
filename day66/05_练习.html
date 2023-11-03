@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      tr {
+        text-align: center;
+        line-height: 30px;
+      }
+      td {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <table>
+        <tbody>
+          <tr>
+            <td>名称</td>
+            <td>数量</td>
+          </tr>
+          <tr v-for="book in books" :key="book.id">
+            <td>{{book.name}}</td>
+            <td>
+              <button-counter
+                :x="book.num"
+                style="display: flex; width: 80px; justify-content: space-between">
+              </button-counter>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      // 定义一个局部组件：
+      const ButtonCounter = {
+        props: ['x'], // props:接受父组件传递的数据
+        data() {
+          return {
+            count: this.x,
+          };
+        },
+        template: `
+        <div>
+        <button @click='add()'>+</button>
+        <span>{{count}}</span>
+        <button @click='sub()'>-</button>
+        </div>
+        `,
+        methods: {
+          add() {
+            this.count++;
+          },
+          sub() {
+            this.count--;
+          },
+        },
+      };
+
+      // 创建实例
+      const app = Vue.createApp({
+        data() {
+          return {
+            books: [
+              {
+                id: '001',
+                name: 'HTML...',
+                num: 10,
+              },
+              {
+                id: '002',
+                name: 'CSS...',
+                num: 100,
+              },
+              {
+                id: '003',
+                name: 'JS...',
+                num: 50,
+              },
+            ],
+          };
+        },
+        // 注册组件
+        components: {
+          ButtonCounter,
+        },
+      });
+      // 挂载
+      app.mount('#app');
+    </script>
+  </body>
+</html>

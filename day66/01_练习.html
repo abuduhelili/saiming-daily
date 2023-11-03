@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <label for="">用户名：</label>
+        <input type="text" v-model="user.username" />
+        <!-- <span>{{user.username}}</span> -->
+      </div>
+      <div>
+        <label for="">邮箱：</label>
+        <input type="email" v-model="user.email" />
+        <!-- <span>{{user.email}}</span> -->
+      </div>
+
+      <div>
+        <label for="">性别：</label>
+        <input type="radio" name="gender" id="male" value="男" v-model="user.gender" />
+        <label for="male">男</label>
+        <input type="radio" name="gender" id="female" value="女" v-model="user.gender" />
+        <label for="female">女</label>
+        <!-- <span>{{user.gender}}</span> -->
+      </div>
+      <div>
+        <label for="">兴趣：</label>
+        <input type="checkbox" name="hobby" value="tennis" v-model="user.hobby" />
+        <label for="tennis">网球</label>
+        <input type="checkbox" name="hobby" value="running" v-model="user.hobby" />
+        <label for="running">跑步</label>
+        <input type="checkbox" name="hobby" value="reading" v-model="user.hobby" />
+        <label for="reading">看书</label>
+        <!-- <span>{{user.hobby}}</span> -->
+      </div>
+      <div>
+        <label for="">协议：</label>
+        <input type="checkbox" v-model="isAgree" />
+        <label>{{isAgree?'同意':'不同意'}}</label>
+        <!-- <span>{{isAgree}}</span> -->
+      </div>
+      <div>
+        <button @click.prevent="submit()">提交</button>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const App = {
+        data() {
+          return {
+            user: {
+              username: '',
+              email: '',
+              gender: '男',
+              hobby: [],
+            },
+            isAgree: false,
+          };
+        },
+        computed: {},
+        methods: {
+          submit() {
+            if (this.isAgree) {
+              console.log('已提交');
+              console.log(this.isAgree);
+
+              console.log(this.user);
+            } else {
+              console.log('请先同意！');
+              console.log(this.isAgree);
+            }
+          },
+        },
+      };
+      Vue.createApp(App).mount('#app');
+    </script>
+  </body>
+</html>

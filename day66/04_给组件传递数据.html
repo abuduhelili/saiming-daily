@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button-counter x="100"></button-counter><br />
+      <button-counter x="200"></button-counter><br />
+      <hr />
+      <!-- 动态绑定属性 -->
+      <button-counter :x="y"></button-counter><br />
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      // 定义一个局部组件：
+      const MyComponent = {
+        // props:接受父组件传递的数据
+        props: ['x'],
+        //
+        data() {
+          return {
+            // 接受的数据赋给自己的数据
+            count: this.x,
+          };
+        },
+        template: `
+        <div>
+          <div>接收到的数据：{{x}}</div>
+        <button @click='addCount'>+</button>
+        <span>{{this.count}}</span>
+        <button @click='subCount'>-</button>
+        </div>
+        `,
+        methods: {
+          addCount() {
+            this.count++;
+          },
+          subCount() {
+            this.count--;
+          },
+        },
+      };
+      // 根组件
+      const App = {
+        data() {
+          return {
+            y: 1000,
+          };
+        },
+        // 注册组件
+        components: {
+          ButtonCounter: MyComponent,
+        },
+      };
+      // 创建实例
+      const app = Vue.createApp(App);
+      // 挂载
+      app.mount('#app');
+    </script>
+  </body>
+</html>
