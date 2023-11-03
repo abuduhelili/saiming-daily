@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <com-a x="10" :y="y"></com-a>
+      <hr />
+      <com-b v-for="book in books" :book="book"></com-b>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      /*
+      props:
+      1):props:["x1","x2","x3"], // 传递数据
+      2):props:["Obj1","obj2","obj3"],// 可直接传递对象
+
+      */
+      // 组件A
+      const ComA = {
+        props: ['x', 'y'], // 传入数据
+        data() {
+          return {
+            a: this.x,
+            b: this.y,
+          };
+        },
+        template: `
+        <div>
+          <p>A:{{a}};B:{{b}}</p>
+        </div>
+          `,
+      };
+      // 组件B
+      const ComB = {
+        props: ['book'], // 传入对象
+        template: `
+        <div>
+          <p>name:{{book.name}};price:{{book.price}}</p>
+        </div>
+          `,
+      };
+      // 根组件
+      const App = {
+        data() {
+          return {
+            y: 100,
+            books: [
+              {
+                name: 'HTML',
+                price: 20,
+              },
+              {
+                name: 'CSS',
+                price: 40,
+              },
+              {
+                name: 'JS',
+                price: 30,
+              },
+            ],
+          };
+        },
+        components: {
+          ComA,
+          ComB,
+        },
+      };
+      // 实例
+      const app = Vue.createApp(App);
+      // 挂载
+      app.mount('#app');
+    </script>
+  </body>
+</html>

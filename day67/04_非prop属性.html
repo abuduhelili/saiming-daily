@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 可以使用没有prop传入的属性
+      如：class等
+      -->
+      <com-a class="red"></com-a>
+      <hr />
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      /*
+       */
+      // 组件A
+      const ComA = {
+        data() {
+          return {
+            msg: 'hello',
+          };
+        },
+        template: `
+        <div>
+          <p>{{msg}}</p>
+        </div>
+          `,
+      };
+      // 根组件
+      const App = {
+        data() {
+          return {};
+        },
+        components: {
+          ComA,
+        },
+      };
+      // 实例
+      const app = Vue.createApp(App);
+      // 挂载
+      app.mount('#app');
+    </script>
+  </body>
+</html>

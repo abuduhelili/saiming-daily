@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .coma {
+        padding: 10px;
+        width: 300px;
+        border: 3px solid red;
+      }
+      .comb {
+        padding: 10px;
+        border: 2px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <com-a class="coma"></com-a>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      // 根组件
+      const App = {
+        data() {
+          return {};
+        },
+      };
+      // 实例
+      const app = Vue.createApp(App);
+      /*
+      组件之间可以嵌套；
+      子组件可以使用它父组件的数据
+      */
+      // 组件A--A中嵌套使用了B组件
+      app.component('ComA', {
+        data() {
+          return {
+            msg: 'i am ComA',
+            book: {
+              name: 'Vue',
+              price: 20,
+            },
+          };
+        },
+        template: `
+          <div>
+          <h1>{{msg}}</h1>
+          <com-b :book="book" class="comb"></com-b>
+          </div>
+          `,
+      });
+      // 组件B
+      app.component('ComB', {
+        props: {
+          book: Object,
+        },
+        data() {
+          return {
+            msg: 'i am ComB',
+          };
+        },
+        template: `
+          <div>
+            <h3>i am ComB</h3>
+            <p>BookName:<strong>{{this.book.name}}</strong></p>
+            <p>BookPrice:<strong>{{this.book.price}}</strong></p>
+          </div>
+          `,
+      });
+      // 挂载
+      app.mount('#app');
+    </script>
+  </body>
+</html>

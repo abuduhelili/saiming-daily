@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .d {
+        display: flex;
+      }
+      .space-b {
+        justify-content: space-between;
+      }
+      .w-300 {
+        width: 300px;
+      }
+      .w-100 {
+        width: 100px;
+      }
+      .mr-10 {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <book-list></book-list>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      // // 局部子组件
+      // const BookList = {
+      //   data() {
+      //     return {
+      //       books: [
+      //         {
+      //           id: '001',
+      //           name: 'HTML...',
+      //           price: 30,
+      //         },
+      //         {
+      //           id: '002',
+      //           name: 'CSS...',
+      //           price: 40,
+      //         },
+      //         {
+      //           id: '003',
+      //           name: 'JavaScript...',
+      //           price: 50,
+      //         },
+      //         {
+      //           id: '004',
+      //           name: 'jQuery...',
+      //           price: 60,
+      //         },
+      //       ],
+      //     };
+      //   },
+      //   template: `
+      //   <ul>
+      //   <book-item v-for="book in books" :book="book" :key="book.id"></book-item>
+      //   </ul>
+      //   `,
+      // };
+      // const BookItem = {
+      //   props: {
+      //     book: Object,
+      //   },
+      //   template: `
+      //   <li class="d">
+      //     <p class="w-100 mr-10">{{this.book.id}}</p>
+      //     <p class="w-100 mr-10">{{this.book.name}}</p>
+      //     <p class="w-100 mr-10">{{this.book.price}}</p>
+      //   </li>
+      //   `,
+      // };
+      // //
+      // 根组件
+      const App = {
+        data() {
+          return {};
+        },
+      };
+      // 实例
+      const app = Vue.createApp(App);
+
+      // 列表
+      app.component('BookList', {
+        data() {
+          return {
+            books: [
+              {
+                id: '001',
+                name: 'HTML...',
+                price: 30,
+                num: 100,
+              },
+              {
+                id: '002',
+                name: 'CSS...',
+                price: 40,
+                num: 55,
+              },
+              {
+                id: '003',
+                name: 'JavaScript...',
+                price: 50,
+                num: 90,
+              },
+              {
+                id: '004',
+                name: 'jQuery...',
+                price: 60,
+                num: 85,
+              },
+            ],
+          };
+        },
+        template: `
+        <ul>
+        <book-item v-for="book in books" :book="book" :key="book.id"></book-item>
+        </ul>
+        `,
+      });
+      // 子列表
+      app.component('BookItem', {
+        props: {
+          book: Object,
+        },
+        data() {
+          return {};
+        },
+        template: `
+        <div class="d">
+          <p class="w-100 mr-10">{{this.book.id}}</p>
+          <p class="w-100 mr-10">{{this.book.name}}</p>
+          <p class="w-100 mr-10">{{this.book.price}}</p>
+          <p class="w-100 mr-10 d space-b"><button-counter :n='this.book.num'></button-counter></p>
+        </div>
+        `,
+      });
+      // 数量按钮
+      app.component('ButtonCounter', {
+        props: ['n'],
+        data() {
+          return {
+            num: this.n,
+          };
+        },
+        template: `
+        <button @click="num--">-</button>
+        {{this.num}}
+        <button @click="num++">+</button>
+        `,
+      });
+      // 挂载
+      app.mount('#app');
+    </script>
+  </body>
+</html>

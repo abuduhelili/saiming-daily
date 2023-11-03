@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <com-1
+        :age="age"
+        :email="email"
+        :username="username"
+        :greeting="greeting"
+        :info="info"></com-1>
+      <com-1 :age="age" :email="email" :username="username"></com-1>
+      <com-1 :age="age" :email="email"></com-1>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      //
+      const Com1 = {
+        props: {
+          // 1):要求的类型--基本类型
+          age: Number,
+          // 2):多个类型
+          email: [String, Number],
+          // 3):类型，必填,默认值
+          username: {
+            type: String,
+            required: true,
+            default: 'xxxx',
+          },
+          // 4):对象
+          greeting: {
+            type: Object,
+            // 默认函数：返回一个默认值的对象
+            default() {
+              return {
+                msg: 'hello --De',
+              };
+            },
+          },
+          // 5):自定义验证函数
+          info: {
+            validator(value) {
+              return ['success', 'error', 'warning', 'danger'].includes;
+            },
+            required: true,
+          },
+        },
+        template: `
+        <div>
+          <p>{{greeting.msg}}</p>
+          <p>Age:{{age}};Email:{{email}};Name:{{username}};</P>
+          <button>{{info}}</button>
+
+          </div>
+        `,
+      };
+      // 根组件
+      const App = {
+        data() {
+          return {
+            age: 20,
+            email: '2062454635@qq.com',
+            username: 'Harry',
+            greeting: {
+              msg: 'hello--XX',
+            },
+            info: 'success',
+          };
+        },
+        computed: {},
+        methods: {},
+        components: {
+          Com1,
+        },
+      };
+      // 实例
+      const app = Vue.createApp(App);
+      // 挂载
+      app.mount('#app');
+    </script>
+  </body>
+</html>
