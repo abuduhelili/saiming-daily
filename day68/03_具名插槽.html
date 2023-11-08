@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <com-a>
+        <template #header>
+          <h1>header内容</h1>
+          <h1>header内容</h1>
+          <h1>header内容</h1>
+        </template>
+        <template #main>
+          <h2>main内容</h2>
+          <h2>main内容</h2>
+          <h2>main内容</h2>
+        </template>
+        <template v-slot:footer>
+          <h3>footer内容</h3>
+          <h3>footer内容</h3>
+          <h3>footer内容</h3>
+        </template>
+        <!-- 默认方法到没有设置name属性的slot中 -->
+        <template #default>
+          <h5>默认内容</h5>
+        </template>
+      </com-a>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      /*
+      1):给slot添加name属性。
+        <slot name='header'></slot>
+      2):内容通过template的v-slot属性绑定到对用slot上
+        <template v-slot:header></template>
+        语法糖：<template #name></template>
+      */
+
+      const app = Vue.createApp({});
+
+      // ComA组件
+      app.component('ComA', {
+        template: `
+        <div>
+          
+          <div style="backgroundColor: yellow">
+            <slot name='header'></slot>
+          </div>
+          
+          <div style="backgroundColor: red">
+            <slot name='main'></slot>
+          </div>
+          
+          <div style="backgroundColor: blue">
+            <slot name='footer'></slot>
+          </div>
+          
+          <div style="backgroundColor: balck">
+            <slot>默认插槽</slot>
+          </div>
+          
+        </div>
+        `,
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>

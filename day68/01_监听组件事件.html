@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <com-a @send-data="f1"></com-a>
+      <h2>父组件接受：{{msg}}</h2>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      /*
+      监听子组件自定义事件：
+      子组件：$emit('some',this.data)
+      父组件：@some="function"
+      */
+
+      const app = Vue.createApp({
+        data() {
+          return {
+            msg: '....',
+          };
+        },
+        methods: {
+          f1(value) {
+            this.msg = value;
+            console.log('接收成功');
+          },
+        },
+      });
+
+      app.component('ComA', {
+        data() {
+          return {
+            aData: '我是子组件的数据',
+          };
+        },
+        methods: {
+          Send() {
+            this.$emit('sendData', this.aData);
+          },
+        },
+        template: `
+        <h2>子组件数据：{{aData}}</h2>
+        <button @click="Send">发送</button>
+        `,
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        display: flex;
+        height: 40px;
+        width: 300px;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgb(242, 242, 218);
+        margin-top: 5px;
+      }
+      .w-50 {
+        width: 50px;
+      }
+      .w-100 {
+        width: 100px;
+      }
+      .d {
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h4>{{test}}</h4>
+      <book-list></book-list>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            test: '-----',
+          };
+        },
+      });
+
+      // BookList
+      app.component('BookList', {
+        data() {
+          return {
+            books: [
+              { id: '001', name: 'HTML....', num: 20 },
+              { id: '002', name: 'CSS....', num: 300 },
+              { id: '003', name: 'JS....', num: 400 },
+              { id: '004', name: 'Vue3....', num: 800 },
+            ],
+          };
+        },
+        methods: {
+          sub(index) {
+            this.books[index].num--;
+          },
+          add(index) {
+            this.books[index].num++;
+          },
+        },
+        template: `
+        <div>
+          <book-item v-for='(book,index) in books' 
+          :book='book'
+          @sub-num='sub(index)'
+          @add-num='add(index)'
+          :key='book.id'></book-item>
+        </div>
+        `,
+      });
+
+      // BookItem
+      app.component('BookItem', {
+        props: {
+          book: Object,
+        },
+        data() {
+          return {};
+        },
+        methods: {
+          sub() {
+            this.$emit('subNum');
+          },
+          add() {
+            this.$emit('addNum');
+          },
+        },
+        template: `
+        <div class='item'>
+          <div class='w-100'>{{book.name}}</div>
+          <div class='d'>
+            <button @click='sub()'>-</button>
+            <span class='w-50' style='text-align: center'> {{book.num}} </span>
+            <button @click='add()'>+</button>
+          </div>
+          
+        </div>
+        `,
+      });
+
+      //
+      app.mount('#app');
+    </script>
+  </body>
+</html>

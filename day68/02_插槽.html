@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <com-a title="OOOOH" msg="oooooooh">
+        <!-- 此内容在slot插槽内显示 -->
+        <p>插槽内容</p>
+      </com-a>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      /*
+      <slot> 元素是一个插槽出口 (slot outlet)，
+        标示了父元素提供的插槽内容将在哪里被渲染。
+      */
+
+      const app = Vue.createApp({});
+
+      // ComA组件
+      app.component('ComA', {
+        props: ['title', 'msg'],
+        template: `
+        <div>
+          <h1>{{title}}</h1>  
+          <h2>{{msg}}</h2>
+          <slot></slot>
+        </div>
+        `,
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>

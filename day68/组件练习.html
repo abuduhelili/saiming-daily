@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #test {
+        height: 200px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <my-header h="100px" bg-c="red"></my-header>
+      <my-aside w="100px" h="300px" bg-c="yellow"></my-aside>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({});
+
+      // Header组件
+      app.component('MyHeader', {
+        props: ['h', 'bgC'],
+        template: `
+        <div :style="{height:h ,backgroundColor: bgC}">Header组件</div>
+        `,
+      });
+      // Aside组件
+      app.component('MyAside', {
+        props: ['w', 'h', 'bgC'],
+        data() {
+          return {
+            styleObj: {
+              width: this.w,
+              height: this.h,
+              backgroundColor: this.bgC,
+            },
+          };
+        },
+        template: `
+        <div :style="styleObj">Aside组件</div>
+        `,
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>
