@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        width: 33%;
+      }
+      .tab {
+        width: 300px;
+        height: 400px;
+        background: burlywood;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{test}}</h1>
+      <div style="width: 300px; display: flex; justify-content: space-between">
+        <button v-for="(btn,index) in buttons" @click="changeTab(index)" :key="index">
+          {{btn.name}}
+        </button>
+      </div>
+      <hr />
+      <div>
+        <keep-alive>
+          <component :is="activeTab"></component>
+        </keep-alive>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      /*
+      <component :is="activeTab"></component>
+      */
+
+      const app = Vue.createApp({
+        data() {
+          return {
+            test: 'success',
+            activeTab: 'moreTab', // 当前组件
+            buttons: [
+              {
+                content: 'introduceTab',
+                name: '介绍',
+              },
+              {
+                content: 'questionTab',
+                name: '提问',
+              },
+              {
+                content: 'moreTab',
+                name: '更多',
+              },
+            ],
+          };
+        },
+
+        methods: {
+          changeTab(index) {
+            // 切换组件
+            this.activeTab = this.buttons[index].content;
+          },
+        },
+      });
+      // 组件：introduceTab
+      app.component('introduceTab', {
+        data() {
+          return {
+            content: '介绍',
+          };
+        },
+        template: `
+        <div class="tab">
+          <h2>{{content}}</h2>
+          <h3>。。。。。。。。。。。。。。。</h3>
+        </div>`,
+      });
+
+      //组件：questionTab
+      app.component('questionTab', {
+        data() {
+          return {
+            title: '提问页面',
+            content: '',
+          };
+        },
+        template: `
+        <div class="tab">
+          <h2>{{title}}</h2>
+          <input v-model="content" placeholder="请输入问题？">
+          <h3>{{content}}。。。。。。。。。。。。。。。</h3>
+        </div>`,
+      });
+
+      //组件：moreTab
+      app.component('moreTab', {
+        data() {
+          return {
+            content: '更多内容',
+          };
+        },
+        template: `
+        <div class="tab">
+          <h2>{{content}}</h2>
+          <h3>。。。。。。。。。。。。。。。</h3>
+        </div>
+        `,
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <com-a>
+        <template #header="headerProps">
+          <h2>header内容</h2>
+          <h2>数据：{{headerProps.text}}</h2>
+        </template>
+
+        <template #main="mainProps">
+          <h3>main内容</h3>
+          <h3>数据：{{mainProps.x}}</h3>
+        </template>
+      </com-a>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      /*
+      slot设置：
+       <slot name="main" :x="count"></slot>
+      外部使用：
+      <template #main="mainProps">
+      */
+
+      const app = Vue.createApp({});
+
+      // ComA组件
+      app.component('ComA', {
+        data() {
+          return {
+            msg: 'it`s com-a data',
+            count: 23,
+          };
+        },
+        template: `
+        <div>
+          <h3>我是组件:ComA</h3>
+          <div>
+            <slot name="header" :text="msg">-------</slot>
+          </div>
+          <div>
+            <slot name="main" :x="count">=========</slot>
+          </div>
+          </div>
+        `,
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>
